@@ -334,6 +334,7 @@
     <Content Include="css\normalize.css" />
     <Content Include="css\styles.css" />
     <Content Include="images\Diamant.svg" />
+    <Content Include="images\drink.svg" />
     <Content Include="obj\Debug\SortNatklub.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\SortNatklub.dll" />
     <Content Include="obj\Debug\SortNatklub.pdb" />
