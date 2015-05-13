@@ -1,0 +1,134 @@
+﻿html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*Nav*/
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background-color: #191919;
+    box-sizing: border-box;
+}
+
+/*Burger*/
+.burger {
+    margin: 12px 0 0 10px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+    .burger span,
+    .burger span:before,
+    .burger span:after {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: #fff;
+        transition: all 0.5s;
+        backface-visibility: hidden;
+    }
+
+    .burger span {
+        position: relative;
+        margin: 8px 0 0;
+    }
+
+        .burger span:before,
+        .burger span:after {
+            position: absolute;
+            content: "";
+        }
+
+        .burger span:before {
+            top: -8px;
+        }
+
+        .burger span:after {
+            top: 8px;
+        }
+
+    .burger.selected span:before {
+        transform: translate(0px, 8px) rotate(-45deg);
+    }
+
+    .burger.selected span:after {
+        transform: translate(0px, -8px) rotate(45deg);
+    }
+
+    .burger.selected span {
+        background: transparent;
+    }
+
+    .burger::after {
+        content: "Menu";
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: white;
+        margin-left: 35px;
+        top: 11px;
+        position: absolute;
+    }
+
+/*Nav logo*/
+.header-logo {
+    position: absolute;
+    width: 28px;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    transition: ease 0.2s;
+}
+
+    .header-logo:hover {
+        width: 38px;
+        top: 8px;
+    }
+
+    .header-logo img {
+        width: 100%;
+    }
+
+/*Nav drink*/
+.header-drink {
+    width: 117px;
+    height: 45px;
+    margin: 0 10px 0 0;
+    float: right;
+    cursor: pointer;
+}
+
+    .header-drink span.book {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: white;
+        margin-top: 11px;
+        float: left;
+    }
+
+    .header-drink span.icon-plus {
+        color: white;
+        margin-top: 14px;
+        margin-left: 9px;
+        float: left;
+    }
+
+/*Video*/
+.video-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #191919;
+}

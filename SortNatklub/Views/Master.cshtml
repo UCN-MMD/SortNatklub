@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    @*Nomralize*@
+    <link href="~/css/normalize.css" rel="stylesheet" />
+    @*Foundation grid*@
+    <link href="~/css/foundation.min.css" rel="stylesheet" />
+    @*Open Sans Google fonts*@
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600' rel='stylesheet' type='text/css' />
+    @*Iconer*@
+    <link rel="stylesheet" href="http://i.icomoon.io/public/temp/252d4dd29a/SN/style.css" />
+    @*Custom styles*@
+    <link href="~/css/styles.css" rel="stylesheet" />
+    @*Jquery*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    @*Custom script*@
+    <script src="~/scripts/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="burger" href="#"><span></span></div>
+        <div class="header-logo"><img src="~/images/Diamant.svg" alt="Sort natklub" /></div>
+        <div class="header-drink"><span class="book">Bord booking</span><span class="icon-plus"></span>
+    </header>
+    <nav>
+
+    </nav>
+    @*<div class="video-wrapper"></div>*@
+    @RenderBody()
+</body>
+</html>

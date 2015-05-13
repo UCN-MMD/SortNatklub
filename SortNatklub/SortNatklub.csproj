@@ -329,10 +329,16 @@
     <Content Include="bin\x86\sqlceme40.dll" />
     <Content Include="bin\x86\sqlceqp40.dll" />
     <Content Include="bin\x86\sqlcese40.dll" />
+    <Content Include="css\foundation.css" />
+    <Content Include="css\foundation.min.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="images\Diamant.svg" />
     <Content Include="obj\Debug\SortNatklub.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\SortNatklub.dll" />
     <Content Include="obj\Debug\SortNatklub.pdb" />
     <Content Include="packages.config" />
+    <Content Include="scripts\script.js" />
     <Content Include="umbraco\Actions\delete.aspx" />
     <Content Include="umbraco\Actions\editContent.aspx" />
     <Content Include="umbraco\Actions\preview.aspx" />
@@ -3001,6 +3007,8 @@
     <Content Include="umbraco\Xslt\Web.config" />
     <Content Include="umbraco_client\CodeMirror\Js\Mode\Razor\LICENSE" />
     <Content Include="umbraco_client\CodeMirror\Js\Mode\Sieve\LICENSE" />
+    <Content Include="Views\Master.cshtml" />
+    <Content Include="Views\Forside.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3027,11 +3035,9 @@
     <Folder Include="App_Data\preview\" />
     <Folder Include="App_Data\TEMP\Install\" />
     <Folder Include="App_Plugins\" />
-    <Folder Include="css\" />
     <Folder Include="masterpages\" />
     <Folder Include="media\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="scripts\" />
     <Folder Include="usercontrols\" />
     <Folder Include="xslt\" />
   </ItemGroup>
