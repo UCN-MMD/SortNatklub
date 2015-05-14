@@ -208,6 +208,19 @@ ul.main-nav {
         transform: translateY(-50%);
     }
 
+    /*Mouse icon*/
+.mouse-wrapper {
+    width:28px;
+    height:45px;
+    bottom:20px;
+    right:20px;
+    position:absolute;
+}
+
+    .mouse-wrapper img {
+        position:absolute;
+    }
+
 
 
 
