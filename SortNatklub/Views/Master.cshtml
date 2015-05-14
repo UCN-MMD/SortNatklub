@@ -6,6 +6,7 @@
 <html>
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     @*Nomralize*@
     <link href="~/css/normalize.css" rel="stylesheet" />
     @*Foundation grid*@
@@ -21,10 +22,11 @@
     @*Custom script*@
     <script src="~/scripts/script.js"></script>
 </head>
-<body>
-    <header>
+<body class="@CurrentPage.DocumentTypeAlias">
+@*<body class="lol12">*@
+    <header class="boxShadow">
         <div class="burger" href="#"><span></span></div>
-        <div class="header-logo"><img src="~/images/Diamant.svg" alt="Sort natklub" /></div>
+        <div class="header-logo"><img class="hidden" src="~/images/Diamant.svg" alt="Sort natklub" /></div>
         <div class="header-drink"><span class="book">Bord booking</span><span class="icon-plus"></span></div>
     </header>
     <nav>
@@ -37,7 +39,6 @@
             <li><a>Lol</a></li>
         </ul>
     </nav>
-    <div class="video-wrapper"></div>
     @RenderBody()
 </body>
 </html>
