@@ -335,6 +335,10 @@
     <Content Include="css\styles.css" />
     <Content Include="images\Diamant.svg" />
     <Content Include="images\drink.svg" />
+    <Content Include="images\Logo.svg" />
+    <Content Include="images\mask.png" />
+    <Content Include="images\mouse-scroll.svg" />
+    <Content Include="images\mouse.svg" />
     <Content Include="obj\Debug\SortNatklub.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\SortNatklub.dll" />
     <Content Include="obj\Debug\SortNatklub.pdb" />
