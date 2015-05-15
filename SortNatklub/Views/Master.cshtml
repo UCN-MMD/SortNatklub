@@ -1,6 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = null;
+    var frontpage = CurrentPage.AncestorOrSelf("Forside");
 }
 <!doctype html>
 <html>
@@ -14,7 +15,7 @@
     @*Open Sans Google fonts*@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600' rel='stylesheet' type='text/css' />
     @*Iconer*@
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     @*Custom styles*@
     <link href="~/css/styles.css" rel="stylesheet" />
     @*Jquery*@
@@ -23,22 +24,21 @@
     <script src="~/scripts/script.js"></script>
 </head>
 <body class="@CurrentPage.DocumentTypeAlias">
-@*<body class="lol12">*@
+    @*<body class="lol12">*@
     <header class="boxShadow">
         <div class="burger" href="#"><span></span></div>
-        <div class="header-logo"><img class="hidden" src="~/images/Diamant.svg" alt="Sort natklub" /></div>
+        <div class="header-logo"><a href="@frontpage.url"><img class="hidden" src="~/images/Diamant.svg" alt="Sort natklub" /></a></div>
         <div class="header-drink"><span class="book">Bord booking</span><span class="icon fa fa-plus"></span></div>
     </header>
     <nav>
         <ul class="main-nav">
-            <li><a>Lol</a></li>
-            <li><a>Lol</a></li>
-            <li><a>Lol</a></li>
-            <li><a>Lol</a></li>
-            <li><a>Lol</a></li>
-            <li><a>Lol</a></li>
+            @foreach (var page in frontpage.Children.Where("Visible"))
+            {
+                <li><a href="@page.url">@page.Name</a></li>
+            }
         </ul>
     </nav>
     @RenderBody()
+    <footer></footer>
 </body>
 </html>

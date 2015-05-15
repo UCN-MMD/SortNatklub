@@ -15,7 +15,7 @@ $(document).on("ready", function () {
         $("header").removeClass("boxShadow");
 
         $(window).scroll(function () {
-            var windowHeight = $(window).height() - 55;
+            var windowHeight = $(window).height() -55;
             var scrollHeight = $(window).scrollTop();
 
             if (windowHeight < scrollHeight) {
