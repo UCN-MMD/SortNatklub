@@ -12,14 +12,46 @@
         <img class="floating" src="~/images/mouse-scroll.svg" alt="Scroll down" />
     </div>
 </div>
-<div class="row">
-    <div class="columns large-12"><h1>Koncept</h1></div>
-    <div class="columns large-12">@CurrentPage.Concept</div>
-    <div class="columns large-12">
-        <div class="custom-button">
-            <a href="#">Book et bord <span class="fa fa-plus"></span></a>
+<div class="concept">
+    <div class="row">
+        <div class="columns large-12"><h2>Koncept</h2></div>
+        <div class="columns large-12">@CurrentPage.Concept</div>
+        <div class="columns large-12">
+            <div class="custom-button">
+                <a href="#">Book et bord <span class="fa fa-plus"></span></a>
+            </div>
         </div>
     </div>
 </div>
-<div class="lol">1</div>
+<div class="instagram">
+    <div class="row">
+        <div class="columns large-12"><h2>Instagram</h2></div>
+    </div>
+    <div id="instafeed"></div>
+    <div class="row">
+        <div class="columns large-12">
+            <div class="insta-button"><span class="insta-plus fa fa-plus"></span></div>
+        </div>
+    </div>
+</div>
 
+
+<script type="text/javascript">
+    $(document).on("ready", function () {
+        //e.preventDefaut();
+        var amount = 5;
+        var tag = 'nike'; /*ÆNDRE FRA UMBRACO*/
+        $('.insta-button').on('click', function () {
+            feed.next();
+        });
+        var feed = new Instafeed({
+            get: 'tagged',
+            tagName: tag,
+            limit: 5,
+            resolution: 'standard_resolution',
+            clientId: 'a667838077ac4b4d888127b434ba9cf3',
+            template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>'
+        });
+        feed.run();
+    });
+</script>

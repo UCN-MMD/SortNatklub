@@ -188,6 +188,7 @@ ul.main-nav {
 .video-wrapper {
     width: 100%;
     height: 100%;
+    margin-bottom:30px;
     background-image: url('/images/mask.png');
     background-position: center;
     background-size: cover;
@@ -265,6 +266,9 @@ ul.main-nav {
 
 /*Forside*/
 /*Button*/
+.concept{
+
+}
 
 .custom-button {
     width: 250px;
@@ -301,10 +305,44 @@ ul.main-nav {
             color:#fff;
         }
 
-
-
-
-.lol {
-    width: 100%;
-    height: 2200px;
+        /*Instagram*/
+.instagram {
+    margin-top:30px;  
 }
+
+#instafeed {
+    width:100%;
+    margin-top:30px;
+}
+
+    #instafeed img {
+        width:20%;
+        -webkit-filter: sepia(0.7); filter: sepia(0.7);
+    }
+
+.insta-button {
+    width:55px;
+    height:55px;    
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid #191919;
+    margin:30px auto 0 auto;    
+    transition:background-color ease-in-out 0.1s;
+}
+
+    .insta-button span.insta-plus {
+        width:100%;
+        height:100%;
+        padding-top:17px;
+        display:block;
+        cursor:pointer;        
+        transition:color ease-in-out 0.1s;
+    }
+
+    .insta-button:hover {
+        background-color:#000;
+    }
+
+        .insta-button:hover span.insta-plus {
+            color:#fff;
+        }

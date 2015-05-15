@@ -1,4 +1,5 @@
-﻿$(document).on("click", ".burger", function () {
+﻿/*Navigation*/
+$(document).on("click", ".burger", function () {
     $(this).toggleClass("selected");
 
     if ($(".burger").hasClass("selected")) {
@@ -9,13 +10,19 @@
     }
 });
 
+/*Forside*/
 $(document).on("ready", function () {
     if ($("body").hasClass("Forside")) {
         $("header").css("background-color", "rgba(0,0,0,0)");
         $("header").removeClass("boxShadow");
+        $(".header-logo").on("click", function () {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 1200);
+        });
 
         $(window).scroll(function () {
-            var windowHeight = $(window).height() -55;
+            var windowHeight = $(window).height() - 55;
             var scrollHeight = $(window).scrollTop();
 
             if (windowHeight < scrollHeight) {
