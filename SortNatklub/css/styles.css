@@ -7,8 +7,39 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+h2:before, h3:before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+    height: 2px;
+    width: 50px;
+    border-bottom: 2px solid #191919;
+}
+
 a {
     text-decoration: none;
+}
+
+input[type=text],
+input[type=email] {
+    height: 45px;
+}
+
+::-webkit-input-placeholder {
+    color: #191919;
+}
+
+::-moz-placeholder {
+    color: #191919;
+}
+
+:-ms-input-placeholder {
+    color: #191919;
+}
+
+input:-moz-placeholder {
+    color: #191919;
 }
 
 .hidden {
@@ -182,13 +213,54 @@ ul.main-nav {
             display: block;
         }
 
+/*Footer*/
+footer {
+    margin-top: 30px;
+    padding-top: 30px;
+    color: #fff;
+    background-color: #191919;
+}
 
+    footer .contactform {
+        margin-top: 30px !important;
+        margin-bottom: 15px;
+    }
 
+        footer .contactform .columns {
+            margin: -10px 0 0 0;
+            padding: 0 5px 0 0;
+        }
+
+    footer h2:before, footer h3:before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        bottom: 0;
+        height: 2px;
+        width: 50px;
+        border-bottom: 2px solid #fff;
+    }
+
+    footer textarea {
+        height: 100px;
+    }
+
+    footer .custom-button {
+        margin-top: 0px !important;
+        border-color: #fff;
+        width: 100%;
+    }
+
+        footer .custom-button a {
+            color: #fff;
+        }
+
+/*Forside*/
 /*Video*/
 .video-wrapper {
     width: 100%;
     height: 100%;
-    margin-bottom:30px;
+    margin-bottom: 30px;
     background-image: url('/images/mask.png');
     background-position: center;
     background-size: cover;
@@ -264,10 +336,9 @@ ul.main-nav {
 }
 
 
-/*Forside*/
-/*Button*/
-.concept{
 
+/*Button*/
+.concept {
 }
 
 .custom-button {
@@ -279,7 +350,7 @@ ul.main-nav {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    transition:background-color ease-in-out 0.1s;
+    transition: background-color ease-in-out 0.1s;
 }
 
     .custom-button a {
@@ -290,7 +361,7 @@ ul.main-nav {
         color: #191919;
         font-weight: bold;
         text-transform: uppercase;
-        transition:color ease-in-out 0.1s;
+        transition: color ease-in-out 0.1s;
     }
 
         .custom-button a span {
@@ -298,51 +369,52 @@ ul.main-nav {
         }
 
     .custom-button:hover {
-        background-color:#191919;
+        background-color: #191919;
     }
 
-        .custom-button a:hover {
-            color:#fff;
-        }
+    .custom-button a:hover {
+        color: #fff;
+    }
 
-        /*Instagram*/
+/*Instagram*/
 .instagram {
-    margin-top:30px;  
+    margin-top: 30px;
 }
 
 #instafeed {
-    width:100%;
-    margin-top:30px;
+    width: 100%;
+    margin-top: 30px;
 }
 
     #instafeed img {
-        width:20%;
-        -webkit-filter: sepia(0.7); filter: sepia(0.7);
+        width: 20%;
+        -webkit-filter: sepia(0.7);
+        filter: sepia(0.7);
     }
 
 .insta-button {
-    width:55px;
-    height:55px;    
+    width: 55px;
+    height: 55px;
     text-align: center;
     border-radius: 50%;
     border: 2px solid #191919;
-    margin:30px auto 0 auto;    
-    transition:background-color ease-in-out 0.1s;
+    margin: 30px auto 0 auto;
+    transition: background-color ease-in-out 0.1s;
 }
 
     .insta-button span.insta-plus {
-        width:100%;
-        height:100%;
-        padding-top:17px;
-        display:block;
-        cursor:pointer;        
-        transition:color ease-in-out 0.1s;
+        width: 100%;
+        height: 100%;
+        padding-top: 17px;
+        display: block;
+        cursor: pointer;
+        transition: color ease-in-out 0.1s;
     }
 
     .insta-button:hover {
-        background-color:#000;
+        background-color: #000;
     }
 
         .insta-button:hover span.insta-plus {
-            color:#fff;
+            color: #fff;
         }
