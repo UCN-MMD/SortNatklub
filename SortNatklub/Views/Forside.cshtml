@@ -14,7 +14,7 @@
 </div>
 <div class="concept">
     <div class="row">
-        <div class="columns large-12"><h2>Koncept</h2></div>
+        <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="Instagram" /></span><h2>Koncept</h2></div>
         <div class="columns large-12">@CurrentPage.Concept</div>
         <div class="columns large-12">
             <div class="custom-button">
@@ -25,7 +25,7 @@
 </div>
 <div class="instagram">
     <div class="row">
-        <div class="columns large-12"><h2>Instagram</h2></div>
+        <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="Instagram" /></span><h2>Instagram</h2></div>
     </div>
     <div id="instafeed"></div>
     <div class="row">
@@ -40,7 +40,7 @@
     $(document).on("ready", function () {
         //e.preventDefaut();
         var amount = 5;
-        var tag = 'nike'; /*ÆNDRE FRA UMBRACO*/
+        var tag = '@CurrentPage.hashtag';
         $('.insta-button').on('click', function () {
             feed.next();
         });
