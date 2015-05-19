@@ -3041,8 +3041,10 @@
     <Folder Include="App_Data\preview\" />
     <Folder Include="App_Data\TEMP\Install\" />
     <Folder Include="App_Plugins\" />
+    <Folder Include="Controllers\" />
     <Folder Include="masterpages\" />
     <Folder Include="media\" />
+    <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="usercontrols\" />
     <Folder Include="xslt\" />
