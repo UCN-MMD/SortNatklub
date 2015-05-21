@@ -1,6 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
+
+    var booking = Umbraco.Content(1058);
 }
 
 <div class="video-wrapper">
@@ -18,7 +20,7 @@
         <div class="columns large-12">@CurrentPage.Concept</div>
         <div class="columns large-12">
             <div class="custom-button">
-                <a href="#">Book et bord <span class="fa fa-plus"></span></a>
+                <a href="@booking.Url">Book et bord <span class="fa fa-plus"></span></a>
             </div>
         </div>
     </div>
@@ -38,7 +40,6 @@
 
 <script type="text/javascript">
     $(document).on("ready", function () {
-        //e.preventDefaut();
         var amount = 5;
         var tag = '@CurrentPage.hashtag';
         $('.insta-button').on('click', function () {

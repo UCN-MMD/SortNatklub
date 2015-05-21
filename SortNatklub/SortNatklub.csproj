@@ -329,6 +329,7 @@
     <Content Include="bin\x86\sqlceme40.dll" />
     <Content Include="bin\x86\sqlceqp40.dll" />
     <Content Include="bin\x86\sqlcese40.dll" />
+    <Content Include="css\foundation-datepicker.css" />
     <Content Include="css\foundation.css" />
     <Content Include="css\foundation.min.css" />
     <Content Include="css\normalize.css" />
@@ -343,6 +344,7 @@
     <Content Include="obj\Debug\SortNatklub.dll" />
     <Content Include="obj\Debug\SortNatklub.pdb" />
     <Content Include="packages.config" />
+    <Content Include="scripts\foundation-datepicker.js" />
     <Content Include="scripts\instafeed.js" />
     <Content Include="scripts\script.js" />
     <Content Include="umbraco\Actions\delete.aspx" />
@@ -3015,6 +3017,7 @@
     <Content Include="umbraco_client\CodeMirror\Js\Mode\Sieve\LICENSE" />
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Forside.cshtml" />
+    <Content Include="Views\Booking.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

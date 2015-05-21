@@ -1,0 +1,182 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<div class="Pack">
+    <div class="row">
+        <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="Instagram" /></span><h2>Bord booking</h2></div>
+        <div class="columns large-6">@CurrentPage.bodyStandardPack</div>
+        <div class="columns large-6">
+            <div class="row">
+                <div class="columns large-12">
+                    <input type="text" name="booking-name" value="" placeholder="Navn" />
+                </div>
+                <div class="columns large-12">
+                    <input type="email" name="booking-email" value="" placeholder="Mail" />
+                </div>
+                <div class="columns large-6">
+                    <input type="text" name="booking-phone" value="" placeholder="Telefonnummer" />
+                </div>
+                <div class="columns large-3"><input type="number" name="booking-amount" value="" placeholder="Antal" min="0" /></div>
+                <div class="columns large-3"><input type="text" class="booking-date" name="booking-date" value="" placeholder="Dato" data-date-format="dd/mm/yy" /></div>
+                <div class="columns large-12"><textarea placeholder="Besked"></textarea></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="heart" /></span><h2>Faste pakker</h2></div>
+        <div class="columns large-3 packages">
+            <div class="pack-wrapper">
+                <div class="pack-name">
+                    <h4>Pakke 1</h4>
+                </div>
+                <div class="pack-image">
+                    d
+                </div>
+                <div class="pack-info hidden">
+                    <p>lol</p>
+                </div>
+                <div class="pack-button-wrapper">
+                    <div class="pack-button">
+                        <label>
+                            <input type="checkbox" value="" /><span class="choose">Vælg pakke</span><span class="fa fa-check icon"></span>
+                        </label>
+                    </div>
+                    <div class="pack-info-button">
+                        <span class="fa fa-question icon"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns large-3 packages">
+            <div class="pack-wrapper">
+                <div class="pack-name">
+                    <h4>Pakke 1</h4>
+                </div>
+                <div class="pack-image">
+                    d
+                </div>
+                <div class="pack-info hidden">
+                    <p>lol</p>
+                </div>
+                <div class="pack-button-wrapper">
+                    <div class="pack-button">
+                        <label>
+                            <input type="checkbox" value="" /><span class="choose">Vælg pakke</span><span class="fa fa-check icon"></span>
+                        </label>
+                    </div>
+                    <div class="pack-info-button">
+                        <span class="fa fa-question icon"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns large-3 packages">
+            <div class="pack-wrapper">
+                <div class="pack-name">
+                    <h4>Pakke 1</h4>
+                </div>
+                <div class="pack-image">
+                    d
+                </div>
+                <div class="pack-info hidden">
+                    <p>lol</p>
+                </div>
+                <div class="pack-button-wrapper">
+                    <div class="pack-button">
+                        <label>
+                            <input type="checkbox" value="" /><span class="choose">Vælg pakke</span><span class="fa fa-check icon"></span>
+                        </label>
+                    </div>
+                    <div class="pack-info-button">
+                        <span class="fa fa-question icon"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns large-3 packages">
+            <div class="pack-wrapper">
+                <div class="pack-name">
+                    <h4>Pakke 1</h4>
+                </div>
+                <div class="pack-image">
+                    d
+                </div>
+                <div class="pack-info hidden">
+                    <p>lol</p>
+                </div>
+                <div class="pack-button-wrapper">
+                    <div class="pack-button">
+                        <label>
+                            <input type="checkbox" value="" /><span class="choose">Vælg pakke</span><span class="fa fa-check icon"></span>
+                        </label>
+                    </div>
+                    <div class="pack-info-button">
+                        <span class="fa fa-question icon"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="heart" /></span><h2>Vælg selv pakken</h2></div>
+            <div class="columns large-12">@CurrentPage.bodyCustomPack</div>
+            <div class="columns large-6">
+                <ul class="product-list">
+                    <li class="category">
+                        Vodka<span class="fa fa-angle-down icon"></span>
+                        <ul class="products hidden">
+                            <li class="product">
+                                Absolute Vodka
+                                <div class="product-info">
+                                    <span class="price">500 ,-</span>
+                                    <div class="product-count">
+                                        <span class="fa fa-minus"></span>
+                                        <span class="amount">0</span>
+                                        <span class="fa fa-plus  addProductAmount"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product">
+                                Absolute Vodka
+                                <div class="product-info">
+                                    <span class="price">500 ,-</span>
+                                    <div class="product-count">
+                                        <span class="fa fa-minus"></span>
+                                        <span class="amount">0</span>
+                                        <span class="fa fa-plus  addProductAmount"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product">
+                                Absolute Vodka
+                                <div class="product-info">
+                                    <span class="price">500 ,-</span>
+                                    <div class="product-count">
+                                        <span class="fa fa-minus"></span>
+                                        <span class="amount">0</span>
+                                        <span class="fa fa-plus"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product">
+                                Absolute Vodka
+                                <div class="product-info">
+                                    <span class="price">500 ,-</span>
+                                    <div class="product-count">
+                                        <span class="fa fa-minus"></span>
+                                        <span class="amount">0</span>
+                                        <span class="fa fa-plus"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="category">Rom<span class="fa fa-angle-down icon"></span></li>
+                    <li class="category">Gin<span class="fa fa-angle-down icon"></span></li>
+                    <li class="category">champagne<span class="fa fa-angle-down icon"></span></li>
+                </ul>
+            </div>
+            <div class="columns large-6"></div>
+        </div>
+    </div>

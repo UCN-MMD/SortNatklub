@@ -2,6 +2,7 @@
 @{
     Layout = null;
     var frontpage = CurrentPage.AncestorOrSelf("Forside");
+    var booking = Umbraco.Content(1058);
 }
 <!doctype html>
 <html>
@@ -16,12 +17,16 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600' rel='stylesheet' type='text/css' />
     @*Iconer*@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    @*Datepicker*@
+    <link href="~/css/foundation-datepicker.css" rel="stylesheet" />
     @*Custom styles*@
     <link href="~/css/styles.css" rel="stylesheet" />
     @*Jquery*@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     @*InstaFeed*@
     <script src="~/scripts/instafeed.js"></script>
+    @*Datepicker*@
+    <script src="~/scripts/foundation-datepicker.js"></script>
     @*Custom script*@
     <script src="~/scripts/script.js"></script>
 </head>
@@ -29,8 +34,8 @@
     @*<body class="lol12">*@
     <header class="boxShadow">
         <div class="burger" href="#"><span></span></div>
-        <div class="header-logo"><a href="@frontpage.url"><img class="hidden" src="~/images/Diamant.svg" alt="Sort natklub" /></a></div>
-        <div class="header-drink"><span class="book">Bord booking</span><span class="icon fa fa-plus"></span></div>
+        <div class="header-logo"><a href="@frontpage.url"><img class="hidden" src="~/images/Logo.svg" alt="Sort natklub" /></a></div>
+        <div class="header-drink"><a href="@booking.Url"><span class="book">bord booking</span><span class="icon fa fa-plus"></span></a></div>
     </header>
     <nav>
         <ul class="main-nav">
@@ -38,6 +43,7 @@
             {
                 <li><a href="@page.url">@page.Name</a></li>
             }
+            <li><a href="#Contact">Kontakt</a></li>
         </ul>
     </nav>
     @RenderBody()
@@ -61,7 +67,7 @@
                 </p>
             </div>
             <div class="columns large-4">
-                <div class="row contactform">
+                <div id="Contact"class="row contactform">
                     <form id="contactForm">
                         <div class="columns large-6">
                             <input type="text" name="name" placeholder="Navn" />

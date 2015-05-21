@@ -49,3 +49,28 @@ $(document).on("click", ".mouse-wrapper", function () {
         scrollTop: $(window).height()
     }, 1200);
 });
+
+/*Booking*/
+$(document).on("ready", function () {
+    $(".booking-date").fdatepicker({
+    });
+});
+
+$(document).on("click", ".pack-info-button", function () {
+    var $this = $(this);
+    $this.parent(".pack-button-wrapper").siblings(".pack-info").toggleClass("hidden");
+});
+
+$(document).on("click", "li.category span.icon", function () {
+    var $this = $(this);
+    $this.siblings("ul.products").toggleClass("hidden");
+});
+
+$(document).on("click", ".addProductAmount", function () {
+    var $this = $(this);
+    var currentAmount = parseInt($(".amount").html(), 10);
+    var newAmount = currentAmount + 1;
+
+    $this.prev(".amount").text(newAmount);
+    console.log(newAmount);
+});
