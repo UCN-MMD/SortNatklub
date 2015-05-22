@@ -10,6 +10,7 @@ $(document).on("click", ".burger", function () {
     }
 });
 
+
 /*Forside*/
 $(document).on("ready", function () {
     if ($("body").hasClass("Forside")) {
@@ -68,7 +69,7 @@ $(document).on("click", "li.category span.icon", function () {
 
 $(document).on("click", ".addProductAmount", function () {
     var $this = $(this);
-    var currentAmount = parseInt($(".amount").html(), 10);
+    var currentAmount = parseInt($this.prev().html(), 10);
     var newAmount = currentAmount + 1;
 
     $this.prev(".amount").text(newAmount);
