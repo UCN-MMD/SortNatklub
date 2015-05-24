@@ -27,7 +27,7 @@ namespace SortNatklub.Controllers.Api
                 MailMessage message = new MailMessage();
                 message.To.Add(new MailAddress("dannbos@hotmail.com"));
                 message.From = new MailAddress(formModel.Email);
-                message.Body = formModel.Message;
+                message.Body = formModel.Name + "</br>" + formModel.Message;
                 message.Subject = "Kontaktform";
 
                 smtp.Send(message);

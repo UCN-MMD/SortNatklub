@@ -11,6 +11,30 @@ $(document).on("click", ".burger", function () {
 });
 
 
+/*Kontakt*/
+$(document).on('submit', 'form.contact-form', function (e) {
+    e.preventDefault();
+
+    var $this = $(this)
+
+
+    var json = {};
+
+    json.name = $this.find('input[name="name"]').val();
+    json.email = $this.find('input[name="email"]').val();
+    json.message = $this.find('textarea[name="message"]').val();
+
+    $.ajax({
+        url: "/umbraco/api/mail/contact",
+        dataType: "json",
+        contentType: "application/json",
+        type: "post",
+        data: JSON.stringify(json)
+    }).done(function (response) {
+    }).fail(function (repsonse) {
+    });
+});
+
 /*Forside*/
 $(document).on("ready", function () {
     if ($("body").hasClass("Forside")) {
@@ -74,4 +98,15 @@ $(document).on("click", ".addProductAmount", function () {
 
     $this.prev(".amount").text(newAmount);
     console.log(newAmount);
+});
+
+$(document).on("click", ".subtractProductAmount", function () {
+    var $this = $(this);
+    var currentAmount = parseInt($this.next().html(), 10);
+    if (currentAmount > 0) {
+        var newAmount = currentAmount - 1;
+
+        $this.next(".amount").text(newAmount);
+        console.log(newAmount);
+    }
 });
