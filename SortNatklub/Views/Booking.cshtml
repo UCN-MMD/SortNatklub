@@ -1,10 +1,8 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using Newtonsoft.Json;
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
     var productpage = Umbraco.Content(1071);
-
-   
-
 }
 
 <div class="Pack">
@@ -32,6 +30,8 @@
         <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="heart" /></span><h2>Faste pakker</h2></div>
         @foreach (var package in productpage.Descendants("Pakke").Where("Visible"))
         {
+            var products = JsonConvert.DeserializeObject(package.products);
+            <span></span>
             <div class="columns small-12 medium-6 large-3 packages">
                 <div class="pack-wrapper">
                     <div class="pack-name">
@@ -42,10 +42,9 @@
                         <div class="pack-image" style="background-image: url(@Umbraco.Media(package.packImage).Url);"></div>
                     }
                     <div class="pack-info hidden">
-                        @foreach (string nodeId in package.packProducts.Split(','))
+                        @foreach (var product in products)
                         {
-                            var drink = Umbraco.Content(nodeId);
-                            <p>@drink.drinkName</p>
+                            <p><span class="pack-amount">@product.amount </span><span>@product.node.name</span></p>
                         }
                         <div class="pack-price">@package.packPrice <span>Kr.</span></div>
                     </div>

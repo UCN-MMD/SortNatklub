@@ -1,0 +1,18 @@
+{    
+    propertyEditors: [      
+        {
+            alias: "SortPackEditor",
+            name: "Package editor",
+            editor: {
+                view: "~/App_Plugins/PackEditor/PackEditor.html"
+            }
+        }
+    ],
+	css: [
+		'~/App_Plugins/PackEditor/PackEditor.css'
+	]
+    ,
+    javascript: [
+        '~/App_Plugins/PackEditor/PackEditor.controller.js'
+    ]
+}

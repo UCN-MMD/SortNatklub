@@ -1,0 +1,8 @@
+﻿<div ng-controller="SortPackEditor">
+    <ul>
+        <li ng-repeat="item in items">
+            <input type="number" min="1" ng-model="item.amount" /><span>{{item.node.name}}</span><span class="icon icon-delete red delete" ng-click="removeItem(item)"></span>
+        </li>
+        <li class="add"><i class="icon icon-add blue "></i><a ng-click="addItem()"> Add</a></li>
+    </ul>
+</div>

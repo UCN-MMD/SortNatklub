@@ -43,7 +43,9 @@ $(document).on('submit', 'form.contact-form', function (e) {
         type: "post",
         data: JSON.stringify(json)
     }).done(function (response) {
+        alert("Din mail er blevet sendt. Vi vender tilbage hurtigst muligt.");
     }).fail(function (repsonse) {
+        alert("Der skete en fejl. Prøv igen eller ring til os.");
     });
 });
 
