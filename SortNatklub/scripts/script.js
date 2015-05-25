@@ -2,14 +2,26 @@
 $(document).on("click", ".burger", function () {
     $(this).toggleClass("selected");
 
+    var windowWidth = $(window).width();
+
     if ($(".burger").hasClass("selected")) {
         $("nav").css("left", "0");
     }
     else {
-        $("nav").css("left", "-285px");
+        $("nav").css("left", - windowWidth);
     }
-});
 
+    $(document).on("click", ".contact-link", function () {
+        $("nav").css("left", -windowWidth);
+        $(".burger").removeClass("selected");
+    });
+
+    $(document).on("click", "ul.main-nav li", function () {
+        var $this = $(this);
+        $this.children("ul.subnav").toggleClass("hidden");
+    });
+
+});
 
 /*Kontakt*/
 $(document).on('submit', 'form.contact-form', function (e) {

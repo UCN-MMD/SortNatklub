@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+<div class="row fester">
+    <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="Instagram" /></span><h2>@CurrentPage.bodyTitle</h2></div>
+    <div class="columns large-12">@CurrentPage.bodyText</div>
+</div>
+<div class="row">
+    <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="Instagram" /></span><h2>Oplev Sort Natklub</h2></div>
+    <div class="columns large-12">
+        <div class="youtube-wrapper">
+            <iframe width="1280" height="720" src="https://www.youtube.com/embed/@CurrentPage.bodyLink" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

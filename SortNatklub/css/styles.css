@@ -67,6 +67,11 @@ input:-moz-placeholder {
     box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);
 }
 
+.Pack, .fester, .billeder, .cocktails, .tekst {
+    padding-top: 70px;
+}
+
+
 /*Header*/
 header {
     position: fixed;
@@ -190,45 +195,51 @@ header {
 /*Nav*/
 nav {
     height: 100%;
-    width: 285px;
-    left: -285px;
+    width: 100%;
+    left: -100%;
     position: fixed;
     transition: ease 0.2s;
     border-right: 1px solid #191919;
-    background-color: #191919;
+    background-color: rgba(0, 0, 0, 0.95);
     z-index: 1;
 }
 
 ul.main-nav {
-    margin-top: 45px;
+    position: relative;
+    top: 150px;
     padding-left: 0;
     list-style: none;
 }
 
     ul.main-nav li {
-        height: 45px;
+        padding: 0;
         width: 100%;
-        border-bottom: 1px solid #191919;
-        background-color: #2e2e2e;
     }
-
-        ul.main-nav li:last-of-type {
-            border: none;
-        }
-
-        ul.main-nav li:hover {
-            background-color: #191919;
-        }
 
         ul.main-nav li a {
             width: 100%;
             height: 100%;
-            padding-left: 45px;
             padding-top: 11px;
-            font-weight: 600;
-            color: #fff;
+            padding-left:20%;
+            font-size: 24px;
+            color: #6f6f6f;
             display: block;
         }
+
+            ul.main-nav li a:hover {
+                color:#fff;
+            }
+
+ul.subnav {
+    padding-left: 0 !important;
+    margin-top: 10px;
+}
+
+    ul.subnav li {
+        
+    padding-left: 30px !important;
+    }
+
 
 /*Footer*/
 footer {
@@ -299,9 +310,10 @@ input[type="submit"] {
     width: 100%;
     height: 100%;
     margin-bottom: 30px;
-    background-image: url('/images/mask.png');
-    background-position: center;
-    background-size: cover;
+    background-image: url('/images/mask2.png');
+    background-position: center 10%;
+    background-size: 75%;
+    background-repeat: no-repeat;
     background-color: #000;
 }
 
@@ -312,6 +324,7 @@ input[type="submit"] {
     height: 100%;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 }
 
     .logo-wrapper img.logo {
@@ -478,13 +491,9 @@ img.icon {
     margin-top: 30px;
 }
 
-.Pack {
-    padding-top: 70px;
+.Pack textarea {
+    height: 100px;
 }
-
-    .Pack textarea {
-        height: 100px;
-    }
 
 .pack-wrapper {
     width: 100%;
@@ -539,17 +548,17 @@ img.icon {
 
         .pack-wrapper .pack-info p {
             color: #fff;
-            margin:0;
-            padding:2px 0;
+            margin: 0;
+            padding: 2px 0;
         }
 
         .pack-wrapper .pack-info .pack-price {
-            position:absolute;
-            height:30px;
-            right:30px;
-            bottom:15px;
-            font-weight:bold;
-            text-decoration:underline;
+            position: absolute;
+            height: 30px;
+            right: 30px;
+            bottom: 15px;
+            font-weight: bold;
+            text-decoration: underline;
         }
 
 .pack-button-wrapper {
@@ -691,3 +700,23 @@ li.category {
                         margin: 0 10px;
                         font-weight: bold;
                     }
+
+/*Privat fester*/
+.youtube-wrapper {
+    position: relative;
+    margin-top: 30px;
+    padding-bottom: 56.25%;
+    padding-top: 0px;
+    height: 0;
+    overflow: hidden;
+}
+
+    .youtube-wrapper iframe,
+    .youtube-wrapper object,
+    .youtube-wrapper embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }

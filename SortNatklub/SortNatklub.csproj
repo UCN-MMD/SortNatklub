@@ -338,10 +338,13 @@
     <Content Include="css\styles.css" />
     <Content Include="images\Diamant.svg" />
     <Content Include="images\drink.svg" />
+    <Content Include="images\heart.svg" />
     <Content Include="images\Logo.svg" />
-    <Content Include="images\mask.png" />
+    <Content Include="images\mask2.png" />
+    <Content Include="images\mouse-scroll.jpg" />
     <Content Include="images\mouse-scroll.svg" />
     <Content Include="images\mouse.svg" />
+    <Content Include="images\speech.svg" />
     <Content Include="obj\Debug\SortNatklub.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\SortNatklub.dll" />
     <Content Include="obj\Debug\SortNatklub.pdb" />
@@ -3023,6 +3026,8 @@
     <Content Include="Views\Produkt.cshtml" />
     <Content Include="Views\Produkter.cshtml" />
     <Content Include="Views\Produktkategori.cshtml" />
+    <Content Include="Views\Fester.cshtml" />
+    <Content Include="Views\Pakke.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
