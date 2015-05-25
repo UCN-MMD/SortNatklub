@@ -3020,6 +3020,9 @@
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Forside.cshtml" />
     <Content Include="Views\Booking.cshtml" />
+    <Content Include="Views\Produkt.cshtml" />
+    <Content Include="Views\Produkter.cshtml" />
+    <Content Include="Views\Produktkategori.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3036,10 +3039,7 @@
   <ItemGroup>
     <Compile Include="Classes\Config.cs" />
     <Compile Include="Controllers\Api\MailController.cs" />
-    <Compile Include="Controllers\Api\ProductsController.cs" />
     <Compile Include="Models\ContactFormViewModel.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Repositories\ProductsRepository.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
