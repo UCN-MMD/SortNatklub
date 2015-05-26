@@ -311,7 +311,7 @@ input[type="submit"] {
     margin-bottom: 30px;
     background-image: url('/images/mask2.png');
     background-position: center 10%;
-    background-size: 75%;
+    background-size: 1200px auto;
     background-repeat: no-repeat;
     background-color: #000;
 }
@@ -700,6 +700,9 @@ li.category {
                     font-size: 14px;
                     float: left;
                 }
+                    li.category ul.products li.product .product-info span.price::after {
+                    content:" Kr";
+                    }
 
                 li.category ul.products li.product .product-info .product-count {
                     float: right;
@@ -709,6 +712,58 @@ li.category {
                         margin: 0 10px;
                         font-weight: bold;
                     }
+
+/*Booking total*/
+.total {
+    margin-top:30px;
+    border: 2px solid #191919;
+    border-radius: 2px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+    .total ul.cart-items {
+        list-style: none;
+        padding: 15px 15px 15px 15px;
+        margin: 0;
+        width: 100%;
+    }
+
+        .total ul.cart-items li {
+            width: 100%;
+        }
+
+            .total ul.cart-items li span {
+                display: inline-block;
+            }
+
+                .total ul.cart-items li span.cart-item-name {
+                    width: 60%;
+                }
+
+                .total ul.cart-items li span.cart-item-price {
+                    width: 18%;
+                }
+
+                .total ul.cart-items li span.cart-item-amount {
+                    width: 20%;
+                }
+
+    .total .cart-total {
+        display:block;
+        width:100%;
+        padding:15px 15px;
+        border-top:2px solid #191919;
+    }
+
+        .total .cart-total span {
+            font-weight:bold;
+        }
+        .total .cart-total span:last-of-type {
+            float:right;
+            text-decoration:underline;
+        }
+
 
 /*Privat fester*/
 .youtube-wrapper {

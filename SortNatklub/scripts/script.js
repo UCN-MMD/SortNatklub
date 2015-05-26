@@ -8,7 +8,7 @@ $(document).on("click", ".burger", function () {
         $("nav").css("left", "0");
     }
     else {
-        $("nav").css("left", - windowWidth);
+        $("nav").css("left", -windowWidth);
     }
 
     $(document).on("click", ".contact-link", function () {
@@ -26,12 +26,9 @@ $(document).on("click", ".burger", function () {
 /*Kontakt*/
 $(document).on('submit', 'form.contact-form', function (e) {
     e.preventDefault();
-
     var $this = $(this)
 
-
     var json = {};
-
     json.name = $this.find('input[name="name"]').val();
     json.email = $this.find('input[name="email"]').val();
     json.message = $this.find('textarea[name="message"]').val();
@@ -124,3 +121,60 @@ $(document).on("click", ".subtractProductAmount", function () {
         console.log(newAmount);
     }
 });
+$(document).ready(function () {
+    var arrays = new Array();
+
+    //$(document).on("click", "li.product  span.addProductAmount", function () {
+    //    var $this = $(this).parent().closest("li");
+
+    $(document).on("click", "li.product ", function () {
+        var $this = $(this);
+
+        var thisID = $this.attr("id");
+        var itemName = $this.find("span.product-name").html();
+        var itemQuantity = $this.find("span.amount").html();
+        var itemPrice = $this.find("span.price").html();
+
+        if (include(arrays, thisID)) {
+            var price = $('#each-' + thisID).children("span.cart-item-price").html();
+            var name = $('#each-' + thisID).children("span.cart-item-name").html();
+            var quantity = $('#each-' + thisID).children("span.cart-item-amount").html();
+
+            quantity = parseInt(itemQuantity);
+
+            var total = parseInt(itemPrice) * parseInt(quantity);
+
+            $('#each-' + thisID).children("span.cart-item-price").html(total);
+            $('#each-' + thisID).children("span.cart-item-amount").html(quantity);
+
+            var prev_charges = $("span.cart-item-total").html();
+            prev_charges = parseInt(prev_charges) - parseInt(price);
+
+            prev_charges = parseInt(prev_charges) + parseInt(total);
+            $("span.cart-item-total").html(prev_charges + " Kr");
+
+        }
+        else {
+            arrays.push(thisID);
+
+            var prev_charges = $("span.cart-item-total").html();
+            prev_charges = parseInt(prev_charges) + parseInt(itemPrice);
+
+            $("span.cart-item-total").html(prev_charges + " Kr");
+
+            $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + 'Kr </span><span class="cart-item-amount">' + itemQuantity + '</span></li>');
+        }
+
+        
+    });
+});
+
+function include(arr, obj) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == obj) return true;
+    }
+}
+
+
+
+

@@ -74,10 +74,10 @@
                             <ul class="products hidden">
                                 @foreach (var product in category.Children.Where("Visible"))
                                 {
-                                    <li class="product">
-                                        @product.drinkName
-                                        <div class="product-info" data-id="0">
-                                            <span class="price">@product.drinkPrice ,-</span>
+                                    <li id="@product.Id" class="product">
+                                        <span class="product-name">@product.drinkName</span>
+                                        <div class="product-info">
+                                            <span class="price">@product.drinkPrice</span>
                                             <div class="product-count">
                                                 <span class="fa fa-minus subtractProductAmount"></span>
                                                 <span class="amount">0</span>
@@ -92,6 +92,17 @@
                 }
             </ul>
         </div>
-        <div class="columns large-6"></div>
+        <div class="columns large-6">
+            <div class="total">
+                <ul class="cart-items">
+                    <li>
+                        @*<span class="cart-item-name"></span>
+                        <span class="cart-item-amount"></span>
+                        <span class="cart-item-price"></span>*@
+                    </li>
+                </ul>
+                <div class="cart-total"><span>Total</span><span class="cart-item-total">0</span></div>
+            </div>
+        </div>
     </div>
 </div>
