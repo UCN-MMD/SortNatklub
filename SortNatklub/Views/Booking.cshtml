@@ -33,7 +33,7 @@
             var products = JsonConvert.DeserializeObject(package.products);
             <span></span>
             <div class="columns small-12 medium-6 large-3 packages">
-                <div class="pack-wrapper">
+                <div id="@package.Id" class="pack-wrapper">
                     <div class="pack-name">
                         <h4>@package.packName</h4>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="pack-button-wrapper">
                         <div class="pack-button">
                             <label>
-                                <input type="checkbox" value="" /><span class="choose">Vælg pakke</span><span class="fa fa-check icon"></span>
+                                <input class="pack-checkbox" type="checkbox" value="" /><span class="choose">Vælg pakke</span><span class="fa fa-check icon"></span>
                             </label>
                         </div>
                         <div class="pack-info-button">
@@ -79,9 +79,9 @@
                                         <div class="product-info">
                                             <span class="price">@product.drinkPrice</span>
                                             <div class="product-count">
-                                                <span class="fa fa-minus subtractProductAmount"></span>
-                                                <span class="amount">0</span>
                                                 <span class="fa fa-plus  addProductAmount"></span>
+                                                <span class="amount">0</span>
+                                                <span class="fa fa-minus subtractProductAmount"></span>
                                             </div>
                                         </div>
                                     </li>

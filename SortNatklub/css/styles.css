@@ -674,12 +674,14 @@ li.category {
     li.category span.icon {
         float: right;
         font-size: 30px;
+        margin-right:10px;
+        transition: all 0.2s;
     }
 
     li.category ul.products {
         display: block;
         width: 100%;
-        padding: 0;
+        padding: 0 10px 0 0;
         list-style: none;
     }
 
@@ -700,8 +702,9 @@ li.category {
                     font-size: 14px;
                     float: left;
                 }
+
                     li.category ul.products li.product .product-info span.price::after {
-                    content:" Kr";
+                        content: " Kr";
                     }
 
                 li.category ul.products li.product .product-info .product-count {
@@ -713,9 +716,13 @@ li.category {
                         font-weight: bold;
                     }
 
+.reverse {
+    transform: rotate(180deg);
+}
+
 /*Booking total*/
 .total {
-    margin-top:30px;
+    margin-top: 30px;
     border: 2px solid #191919;
     border-radius: 2px;
     box-sizing: border-box;
@@ -724,45 +731,67 @@ li.category {
 
     .total ul.cart-items {
         list-style: none;
-        padding: 15px 15px 15px 15px;
+        padding: 5px 15px 15px 15px;
         margin: 0;
         width: 100%;
     }
 
         .total ul.cart-items li {
             width: 100%;
+            position: relative;
         }
 
             .total ul.cart-items li span {
                 display: inline-block;
+                margin: 5px 0;
             }
 
                 .total ul.cart-items li span.cart-item-name {
-                    width: 60%;
+                    font-weight:normal !important;
+                    font-size:14px;
+                    width: 200px;
                 }
 
                 .total ul.cart-items li span.cart-item-price {
-                    width: 18%;
+                    font-weight:normal !important;
+                    font-size:14px;
+                    height:21px;
+                    position: absolute;
+                    right: 150px;
                 }
 
                 .total ul.cart-items li span.cart-item-amount {
-                    width: 20%;
+                    font-weight:normal !important;
+                    font-size:14px;
+                    position: absolute;
+                    right: 50px;
+                }
+
+                .total ul.cart-items li span.remove {
+                    position: absolute;
+                    width: 25px;
+                    right: 0px;
+                    top: 2px;
+                    text-align: center;
+                    color: red;
+                    cursor: pointer;
                 }
 
     .total .cart-total {
-        display:block;
-        width:100%;
-        padding:15px 15px;
-        border-top:2px solid #191919;
+        display: block;
+        width: 100%;
+        padding: 15px 15px;
+        border-top: 2px solid #191919;
     }
 
         .total .cart-total span {
-            font-weight:bold;
+            font-weight: bold;
         }
-        .total .cart-total span:last-of-type {
-            float:right;
-            text-decoration:underline;
-        }
+
+            .total .cart-total span:last-of-type {
+                float: right;
+                text-decoration: underline;
+            }
 
 
 /*Privat fester*/

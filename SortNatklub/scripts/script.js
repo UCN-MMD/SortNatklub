@@ -97,38 +97,49 @@ $(document).on("click", ".pack-info-button", function () {
     $this.parent(".pack-button-wrapper").siblings(".pack-info").toggleClass("hidden");
 });
 
+//$(document).on("click", ".pack-button", function () {
+//    var $this = $(this);
+
+//    if ($this.children("label").children("input.pack-checkbox").is(":checked")) {
+//        $this.parent(".pack-button-wrapper").parent(".pack-wrapper").addClass("marked");
+//    }
+//    else {
+//        $this.parent(".pack-button-wrapper").parent(".pack-wrapper").removeClass("marked");
+//    }
+//});
+
 $(document).on("click", "li.category span.icon", function () {
     var $this = $(this);
     $this.siblings("ul.products").toggleClass("hidden");
+    $this.toggleClass("reverse");
 });
 
 $(document).on("click", ".addProductAmount", function () {
     var $this = $(this);
-    var currentAmount = parseInt($this.prev().html(), 10);
+    var currentAmount = parseInt($this.next().html(), 10);
     var newAmount = currentAmount + 1;
 
-    $this.prev(".amount").text(newAmount);
+    $this.next(".amount").text(newAmount);
     console.log(newAmount);
 });
 
 $(document).on("click", ".subtractProductAmount", function () {
     var $this = $(this);
-    var currentAmount = parseInt($this.next().html(), 10);
+    var currentAmount = parseInt($this.prev().html(), 10);
     if (currentAmount > 0) {
         var newAmount = currentAmount - 1;
 
-        $this.next(".amount").text(newAmount);
+        $this.prev(".amount").text(newAmount);
         console.log(newAmount);
     }
 });
+
+/*Add amount on cart item*/
 $(document).ready(function () {
     var arrays = new Array();
 
-    //$(document).on("click", "li.product  span.addProductAmount", function () {
-    //    var $this = $(this).parent().closest("li");
-
-    $(document).on("click", "li.product ", function () {
-        var $this = $(this);
+    $(document).on("click", "li.product  span.addProductAmount", function () {
+        var $this = $(this).parent().closest("li");
 
         var thisID = $this.attr("id");
         var itemName = $this.find("span.product-name").html();
@@ -144,11 +155,10 @@ $(document).ready(function () {
 
             var total = parseInt(itemPrice) * parseInt(quantity);
 
-            $('#each-' + thisID).children("span.cart-item-price").html(total);
+            $('#each-' + thisID).children("span.cart-item-price").html(total + " kr");
             $('#each-' + thisID).children("span.cart-item-amount").html(quantity);
 
             var prev_charges = $("span.cart-item-total").html();
-            prev_charges = parseInt(prev_charges) - parseInt(price);
 
             prev_charges = parseInt(prev_charges) + parseInt(total);
             $("span.cart-item-total").html(prev_charges + " Kr");
@@ -162,16 +172,155 @@ $(document).ready(function () {
 
             $("span.cart-item-total").html(prev_charges + " Kr");
 
-            $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + 'Kr </span><span class="cart-item-amount">' + itemQuantity + '</span></li>');
+            $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
         }
+    });
 
-        
+    /*Subtract amount on cart item*/
+    $(document).on("click", "li.product  span.subtractProductAmount", function () {
+        var $this = $(this).parent().closest("li");
+
+        var thisID = $this.attr("id");
+        var itemName = $this.find("span.product-name").html();
+        var itemQuantity = $this.find("span.amount").html();
+        var itemPrice = $this.find("span.price").html();
+
+        if (include(arrays, thisID)) {
+            var price = $('#each-' + thisID).children("span.cart-item-price").html();
+            var name = $('#each-' + thisID).children("span.cart-item-name").html();
+            var quantity = $('#each-' + thisID).children("span.cart-item-amount").html();
+
+            quantity = parseInt(itemQuantity);
+
+            var total = parseInt(itemPrice) * parseInt(quantity);
+
+            $('#each-' + thisID).children("span.cart-item-price").html(total + " kr");
+            $('#each-' + thisID).children("span.cart-item-amount").html(quantity);
+
+            var prev_charges = $("span.cart-item-total").html();
+            prev_charges = parseInt(prev_charges) - parseInt(price);
+            $("span.cart-item-total").html(prev_charges + " Kr");
+        }
+        else {
+            arrays.push(thisID);
+
+            var prev_charges = $("span.cart-item-total").html();
+            prev_charges = parseInt(prev_charges) + parseInt(itemPrice);
+
+            $("span.cart-item-total").html(prev_charges + " Kr");
+
+            $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
+        }
+    });
+
+    /*Remove item*/
+    $(document).on("click", "span.remove", function () {
+        var deduct = $(this).parent().find().closest("li").html();
+        var prev_charges = $("span.cart-item-total").html();
+
+        var thisID = $(this).parent().attr('id').replace('each-', '');
+
+        var pos = getpos(arrays, thisID);
+        arrays.splice(pos, 1, "0")
+
+        prev_charges = parseInt(prev_charges) - parseInt(deduct);
+        $("span.cart-item-total").html(prev_charges);
+        $(this).parent().remove();
     });
 });
+
+/*Add pack to cart*/
+/////////////////////////////////////////////////////////////////////////////////////// Mangler fjerne
+$(document).on("click", ".pack-button", function () {
+    var $this = $(this);
+    var arrays = new Array();
+
+    if ($this.children("label").children("input.pack-checkbox").is(":checked")) {
+        var $pack = $this.parent(".pack-button-wrapper").parent(".pack-wrapper").addClass("marked");
+
+        //addPack();
+        var thisID = $pack.attr("id");
+        var itemName = $pack.children(".pack-name").find("h4").html();
+        var itemQuantity = 1;
+        var itemPrice = $pack.children(".pack-info").find(".pack-price").html();
+
+        if (include(arrays, thisID)) {
+            var price = $('#each-' + thisID).children("span.cart-item-price").html();
+            var name = $('#each-' + thisID).children("span.cart-item-name").html();
+            var quantity = $('#each-' + thisID).children("span.cart-item-amount").html();
+
+            quantity = parseInt(itemQuantity);
+
+            var total = parseInt(itemPrice);
+
+            $('#each-' + thisID).children("span.cart-item-price").html(total + " kr");
+            $('#each-' + thisID).children("span.cart-item-amount").html(quantity);
+
+            var prev_charges = $("span.cart-item-total").html();
+
+            prev_charges = parseInt(prev_charges) + parseInt(total);
+            $("span.cart-item-total").html(prev_charges + " Kr");
+        }
+        else {
+            arrays.push(thisID);
+
+            var prev_charges = $("span.cart-item-total").html();
+            prev_charges = parseInt(prev_charges) + parseInt(itemPrice);
+
+            $("span.cart-item-total").html(prev_charges + " Kr");
+
+            $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
+        }
+    }
+    else {
+        var $pack = $this.parent(".pack-button-wrapper").parent(".pack-wrapper").removeClass("marked");
+    }
+});
+
+//function addPack() {
+//    var thisID = $pack.attr("id");
+//    var itemName = $pack.children(".pack-name").html();
+//    var itemQuantity = 1;
+//    var itemPrice = $pack.children(".pack-info").find(".pack-price").html();
+
+//    if (include(arrays, thisID)) {
+//        var price = $('#each-' + thisID).children("span.cart-item-price").html();
+//        var name = $('#each-' + thisID).children("span.cart-item-name").html();
+//        var quantity = $('#each-' + thisID).children("span.cart-item-amount").html();
+
+//        quantity = parseInt(itemQuantity);
+
+//        var total = parseInt(itemPrice);
+
+//        $('#each-' + thisID).children("span.cart-item-price").html(total + " kr");
+//        $('#each-' + thisID).children("span.cart-item-amount").html(quantity);
+
+//        var prev_charges = $("span.cart-item-total").html();
+
+//        prev_charges = parseInt(prev_charges) + parseInt(total);
+//        $("span.cart-item-total").html(prev_charges + " Kr");
+//    }
+//    else {
+//        arrays.push(thisID);
+
+//        var prev_charges = $("span.cart-item-total").html();
+//        prev_charges = parseInt(prev_charges) + parseInt(itemPrice);
+
+//        $("span.cart-item-total").html(prev_charges + " Kr");
+
+//        $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
+//    }
+//}
 
 function include(arr, obj) {
     for (var i = 0; i < arr.length; i++) {
         if (arr[i] == obj) return true;
+    }
+}
+
+function getpos(arr, obj) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == obj) return i;
     }
 }
 

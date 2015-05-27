@@ -354,6 +354,7 @@
     <Content Include="packages.config" />
     <Content Include="scripts\foundation-datepicker.js" />
     <Content Include="scripts\instafeed.js" />
+    <Content Include="scripts\jquery.livequery.js" />
     <Content Include="scripts\script.js" />
     <Content Include="umbraco\Actions\delete.aspx" />
     <Content Include="umbraco\Actions\editContent.aspx" />
