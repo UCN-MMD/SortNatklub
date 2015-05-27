@@ -150,7 +150,6 @@ $(document).ready(function () {
             var price = $('#each-' + thisID).children("span.cart-item-price").html();
             var name = $('#each-' + thisID).children("span.cart-item-name").html();
             var quantity = $('#each-' + thisID).children("span.cart-item-amount").html();
-
             quantity = parseInt(itemQuantity);
 
             var total = parseInt(itemPrice) * parseInt(quantity);
@@ -159,8 +158,9 @@ $(document).ready(function () {
             $('#each-' + thisID).children("span.cart-item-amount").html(quantity);
 
             var prev_charges = $("span.cart-item-total").html();
-
             prev_charges = parseInt(prev_charges) + parseInt(total);
+
+            prev_charges = parseInt(prev_charges) - parseInt(price);
             $("span.cart-item-total").html(prev_charges + " Kr");
 
         }
@@ -198,7 +198,9 @@ $(document).ready(function () {
             $('#each-' + thisID).children("span.cart-item-amount").html(quantity);
 
             var prev_charges = $("span.cart-item-total").html();
-            prev_charges = parseInt(prev_charges) - parseInt(price);
+            prev_charges = parseInt(prev_charges) - parseInt(itemPrice);
+
+
             $("span.cart-item-total").html(prev_charges + " Kr");
         }
         else {
@@ -206,7 +208,6 @@ $(document).ready(function () {
 
             var prev_charges = $("span.cart-item-total").html();
             prev_charges = parseInt(prev_charges) + parseInt(itemPrice);
-
             $("span.cart-item-total").html(prev_charges + " Kr");
 
             $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
@@ -215,17 +216,18 @@ $(document).ready(function () {
 
     /*Remove item*/
     $(document).on("click", "span.remove", function () {
-        var deduct = $(this).parent().find().closest("li").html();
+        var deduct = $(this).siblings("span.cart-item-price").html();
         var prev_charges = $("span.cart-item-total").html();
-
+        var prev_quantity = $(this).siblings("span.cart-item-amount").html();
         var thisID = $(this).parent().attr('id').replace('each-', '');
 
         var pos = getpos(arrays, thisID);
         arrays.splice(pos, 1, "0")
 
-        prev_charges = parseInt(prev_charges) - parseInt(deduct);
+        prev_charges = parseInt(prev_charges) - (parseInt(prev_quantity) * parseInt(deduct));
         $("span.cart-item-total").html(prev_charges);
-        $(this).parent().remove();
+        $("span.cart-item-amount").html("0");
+        $(this).parent("li").remove();
     });
 });
 
