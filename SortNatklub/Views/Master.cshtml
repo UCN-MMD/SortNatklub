@@ -47,43 +47,43 @@
     <header class="boxShadow">
         <div class="burger" href="#"><span></span></div>
         <div class="header-logo"><a href="@frontpage.url"><img class="hidden" src="~/images/Logo.svg" alt="Sort natklub" /></a></div>
-        <div class="header-drink"><a href="@booking.Url"><span class="book">Bord booking</span><span class="icon fa fa-plus"></span></a></div>
+        <div class="header-drink"><a href="@booking.Url"><span class="book">Bordbooking</span><span class="icon fa fa-plus"></span></a></div>
     </header>
     <nav>
         <ul class="main-nav">
             @foreach (var page in frontpage.Children.Where("Visible"))
             {
                 <li>
-                    @if (page.DocumentTypeAlias == "Sektion")
-                    {
-                        <a>@page.Name</a>
-                        if (page.Children.Any())
+                    @*@if (page.DocumentTypeAlias == "Sektion")
                         {
-                            <ul class="subnav hidden">
-                                @foreach (var subpage in page.Children.Where("Visible"))
-                                {
-                                    <li>
-                                        <a href="@subpage.url">@subpage.Name</a>
-                                    </li>
-                                }
-                            </ul>
+                            <a>@page.Name</a>
+                            if (page.Children.Any())
+                            {
+                                <ul class="subnav hidden">
+                                    @foreach (var subpage in page.Children.Where("Visible"))
+                                    {
+                                        <li>
+                                            <a href="@subpage.url">@subpage.Name</a>
+                                        </li>
+                                    }
+                                </ul>
+                            }
                         }
-                    }
-                    else
-                    {
-                        <a href="@page.url">@page.Name</a>
-                        if (page.Children.Any())
-                        {
-                            <ul class="subnav hidden">
-                                @foreach (var subpage in page.Children.Where("Visible"))
-                                {
-                                    <li>
-                                        <a href="@subpage.url">@subpage.Name</a>
-                                    </li>
-                                }
-                            </ul>
-                        }
-                    }
+                        else
+                        {*@
+                    <a href="@page.url">@page.Name</a>
+                    @*if (page.Children.Any())
+                            {
+                                <ul class="subnav hidden">
+                                    @foreach (var subpage in page.Children.Where("Visible"))
+                                    {
+                                        <li>
+                                            <a href="@subpage.url">@subpage.Name</a>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        }*@
 
                 </li>
             }
@@ -104,7 +104,7 @@
             <div class="columns small-12 medium-6 large-4">
                 <div class="footer-icon-wrapper"><img src="~/images/speech.svg" alt="socail media" /></div>
                 <h3>Fang os på</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nisi lacus, mattis in porttitor at, lacinia quis elit.</p>
+                @frontpage.footerText
                 <p class="social">
                     <a href="https://www.facebook.com/Sortnatklub" target="_blank"><span class="fa fa-3x fa-facebook-official"></span></a>
                     <a href="https://instagram.com/sortnatklub/" target="_blank"><span class="fa fa-3x fa-instagram"></span></a>

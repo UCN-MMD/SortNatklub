@@ -238,11 +238,10 @@ $(document).on("click", ".pack-button", function () {
     if ($this.children("label").children("input.pack-checkbox").is(":checked")) {
         var $pack = $this.parent(".pack-button-wrapper").parent(".pack-wrapper").addClass("marked");
 
-        //addPack();
         var thisID = $pack.attr("id");
         var itemName = $pack.children(".pack-name").find("h4").html();
         var itemQuantity = 1;
-        var itemPrice = $pack.children(".pack-info").find(".pack-price").html();
+        var itemPrice = $pack.children(".pack-info").children(".pack-price").find("span").html();
 
         if (include(arrays, thisID)) {
             var price = $('#each-' + thisID).children("span.cart-item-price").html();
@@ -276,41 +275,6 @@ $(document).on("click", ".pack-button", function () {
         var $pack = $this.parent(".pack-button-wrapper").parent(".pack-wrapper").removeClass("marked");
     }
 });
-
-//function addPack() {
-//    var thisID = $pack.attr("id");
-//    var itemName = $pack.children(".pack-name").html();
-//    var itemQuantity = 1;
-//    var itemPrice = $pack.children(".pack-info").find(".pack-price").html();
-
-//    if (include(arrays, thisID)) {
-//        var price = $('#each-' + thisID).children("span.cart-item-price").html();
-//        var name = $('#each-' + thisID).children("span.cart-item-name").html();
-//        var quantity = $('#each-' + thisID).children("span.cart-item-amount").html();
-
-//        quantity = parseInt(itemQuantity);
-
-//        var total = parseInt(itemPrice);
-
-//        $('#each-' + thisID).children("span.cart-item-price").html(total + " kr");
-//        $('#each-' + thisID).children("span.cart-item-amount").html(quantity);
-
-//        var prev_charges = $("span.cart-item-total").html();
-
-//        prev_charges = parseInt(prev_charges) + parseInt(total);
-//        $("span.cart-item-total").html(prev_charges + " Kr");
-//    }
-//    else {
-//        arrays.push(thisID);
-
-//        var prev_charges = $("span.cart-item-total").html();
-//        prev_charges = parseInt(prev_charges) + parseInt(itemPrice);
-
-//        $("span.cart-item-total").html(prev_charges + " Kr");
-
-//        $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
-//    }
-//}
 
 function include(arr, obj) {
     for (var i = 0; i < arr.length; i++) {
