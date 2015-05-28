@@ -120,7 +120,6 @@ $(document).on("click", ".addProductAmount", function () {
     var newAmount = currentAmount + 1;
 
     $this.next(".amount").text(newAmount);
-    console.log(newAmount);
 });
 
 $(document).on("click", ".subtractProductAmount", function () {
@@ -201,7 +200,7 @@ $(document).ready(function () {
             $("span.cart-item-total").html(prev_charges + " Kr");
             $("span.cart-item-total-procent").html(price_after + " Kr");
 
-            $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
+            $("ul.cart-items").append('<li id="each-' + thisID + '" class="product"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
         }
     });
 
@@ -257,7 +256,7 @@ $(document).ready(function () {
             $("span.cart-item-total").html(prev_charges + " Kr");
             $("span.cart-item-total-procent").html(price_after + " Kr");
 
-            $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
+            $("ul.cart-items").append('<li id="each-' + thisID + '" class="product"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
         }
     });
 
@@ -316,8 +315,9 @@ $(document).on("click", ".pack-button", function () {
             prev_charges = parseInt(prev_charges) + parseInt(itemPrice);
 
             $("span.cart-item-total").html(prev_charges + " Kr");
+            $("span.cart-item-total-procent").html(prev_charges + " Kr");
 
-            $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
+            $("ul.cart-items").append('<li id="each-' + thisID + '" class="product"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
         }
     }
     else {
@@ -326,8 +326,42 @@ $(document).on("click", ".pack-button", function () {
 });
 
 
-$(document).on("submit", ".booking-submit", function () {
+$(document).on("click", ".booking-button", function () {
+    var $this = $(this)
 
+    var json = {};
+
+    json.bookingName = $this.closest(".Pack").find('input[name="booking-name"]').val();
+    json.bookingEmail = $this.closest(".Pack").find('input[name="booking-email"]').val();
+    json.bookingPhone = $this.closest(".Pack").find('input[name="booking-phone"]').val();
+    json.bookingGuests = $this.closest(".Pack").find('input[name="booking-amount"]').val();
+    json.bookingDate = $this.closest(".Pack").find('input[name="booking-date"]').val();
+    json.bookingMessage = $this.closest(".Pack").find('textarea[name="orderMessage"]').val();
+
+    json.bookingTotal = $this.siblings(".total").find("span.cart-item-total-procent").text();
+
+    json.bookingProducts = new Array();
+
+    $("ul.cart-items li.product").each(function (i, product) {
+        json.bookingProducts.push({
+            productName: $(product).find("span.cart-item-name").text(),
+            productQuantity: parseInt($(product).find("span.cart-item-amount").text()),
+            productPrice: $(product).find("span.cart-item-price").text()
+        });
+    });
+    console.log(json);
+
+    $.ajax({
+        url: "/umbraco/api/orders/placeorder",
+        dataType: "json",
+        contentType: "application/json",
+        type: "post",
+        data: JSON.stringify(json)
+    }).done(function (response) {
+        alert("Din booking er blevet sendt. Vi vender tilbage hurtigst muligt.");
+    }).fail(function (repsonse) {
+        alert("Der skete en fejl. Prøv igen eller ring til os.");
+    });
 });
 
 

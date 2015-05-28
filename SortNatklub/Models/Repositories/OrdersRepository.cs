@@ -13,7 +13,7 @@ namespace SortNatklub.Models.Repositories
         {
             try
             {
-                order.Calculate();
+                //order.Calculate();
                 using (SqlConnection sql = new SqlConnection(Config.ConnectionString("umbracoDbDSN")))
                 {
                     sql.Open();
@@ -79,7 +79,7 @@ namespace SortNatklub.Models.Repositories
                                 order.Guests = reader.GetInt32(reader.GetOrdinal("guests"));
                                 order.Date = reader.GetDateTime(reader.GetOrdinal("date"));
                                 order.Message = reader.GetString(reader.GetOrdinal("message"));
-                                order.Total = reader.GetInt32(reader.GetOrdinal("orderTotal"));
+                                order.Total = reader.GetString(reader.GetOrdinal("orderTotal"));
                                 order.Products = new List<OrderItem>();
                             }
                         }
@@ -97,7 +97,7 @@ namespace SortNatklub.Models.Repositories
                                 OrderItem product = new OrderItem();
                                 product.ProductName = reader.GetString(reader.GetOrdinal("productName"));
                                 product.ProductQuantity = reader.GetInt32(reader.GetOrdinal("productQuantity"));
-                                product.ProductPrice = reader.GetInt32(reader.GetOrdinal("productPrice"));
+                                product.ProductPrice = reader.GetString(reader.GetOrdinal("productPrice"));
                                 order.Products.Add(product);
                             }
                         }

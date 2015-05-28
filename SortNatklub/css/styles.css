@@ -34,8 +34,8 @@ h3:before {
 }
 
 h4 {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -43,7 +43,7 @@ a {
 }
 
 p {
-    text-align:justify;
+    text-align: justify;
 }
 
 input[type=text],
@@ -567,7 +567,7 @@ img.icon {
         }
 
             .pack-wrapper .pack-info .pack-price span::after {
-            content: " Kr."
+                content: " Kr.";
             }
 
 .pack-button-wrapper {
@@ -674,7 +674,7 @@ li.category {
     li.category span.icon {
         float: right;
         font-size: 30px;
-        margin-right:10px;
+        margin-right: 10px;
         transition: all 0.2s;
     }
 
@@ -747,22 +747,22 @@ li.category {
             }
 
                 .total ul.cart-items li span.cart-item-name {
-                    font-weight:normal !important;
-                    font-size:14px;
+                    font-weight: normal !important;
+                    font-size: 14px;
                     width: 200px;
                 }
 
                 .total ul.cart-items li span.cart-item-price {
-                    font-weight:normal !important;
-                    font-size:14px;
-                    height:21px;
+                    font-weight: normal !important;
+                    font-size: 14px;
+                    height: 21px;
                     position: absolute;
                     right: 150px;
                 }
 
                 .total ul.cart-items li span.cart-item-amount {
-                    font-weight:normal !important;
-                    font-size:14px;
+                    font-weight: normal !important;
+                    font-size: 14px;
                     position: absolute;
                     right: 50px;
                 }
@@ -783,6 +783,7 @@ li.category {
         padding: 15px 15px;
         border-top: 2px solid #191919;
     }
+
     .total .cart-total-procent {
         display: block;
         width: 100%;
@@ -790,15 +791,28 @@ li.category {
         border-top: 2px solid #191919;
     }
 
-        .total .cart-total span {
-            font-weight: bold;
+    .total .cart-total span {
+        font-weight: bold;
+    }
+
+        .total .cart-total span:last-of-type {
+            float: right;
+            text-decoration: underline;
         }
 
-            .total .cart-total span:last-of-type {
-                float: right;
-                text-decoration: underline;
-            }
 
+/*Booking knap*/
+input[type="submit"].booking-button {
+    margin-top:15px;
+    width: 100%;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 1);
+    border: 2px solid #191919;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
 
 /*Privat fester*/
 .youtube-wrapper {
@@ -820,6 +834,13 @@ li.category {
         height: 100%;
     }
 
+/*Billeder*/
+.billede-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+
 /*Medium*/
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
     .video-wrapper {
@@ -833,7 +854,7 @@ li.category {
         background-color: #000;
     }
 
-     footer .contactform .columns {
+    footer .contactform .columns {
         margin-top: -10px;
         padding: 0 15px 0 15px;
     }
@@ -851,7 +872,7 @@ li.category {
         background-color: #000;
     }
 
-     footer .contactform .columns {
+    footer .contactform .columns {
         margin-top: -10px;
         padding: 0 15px 0 15px;
     }
