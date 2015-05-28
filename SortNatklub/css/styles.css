@@ -450,8 +450,8 @@ img.icon {
 
     #instafeed img {
         width: 20%;
-        -webkit-filter: grayscale(1);
-        filter: grayscale(1);
+        /*-webkit-filter: grayscale(1);
+        filter: grayscale(1);*/
     }
 
 .insta-button {
@@ -778,6 +778,12 @@ li.category {
                 }
 
     .total .cart-total {
+        display: block;
+        width: 100%;
+        padding: 15px 15px;
+        border-top: 2px solid #191919;
+    }
+    .total .cart-total-procent {
         display: block;
         width: 100%;
         padding: 15px 15px;

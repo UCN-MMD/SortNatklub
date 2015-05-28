@@ -130,7 +130,6 @@ $(document).on("click", ".subtractProductAmount", function () {
         var newAmount = currentAmount - 1;
 
         $this.prev(".amount").text(newAmount);
-        console.log(newAmount);
     }
 });
 
@@ -145,6 +144,9 @@ $(document).ready(function () {
         var itemName = $this.find("span.product-name").html();
         var itemQuantity = $this.find("span.amount").html();
         var itemPrice = $this.find("span.price").html();
+
+        var onethousand = 1000;
+        var twothousand = 2000;
 
         if (include(arrays, thisID)) {
             var price = $('#each-' + thisID).children("span.cart-item-price").html();
@@ -161,7 +163,21 @@ $(document).ready(function () {
             prev_charges = parseInt(prev_charges) + parseInt(total);
 
             prev_charges = parseInt(prev_charges) - parseInt(price);
+
+            var price_after = prev_charges;
+            // Procenter
+            if (parseInt(prev_charges) > twothousand) {
+                price_after = parseInt(prev_charges - (prev_charges * 0.2));
+            }
+            else if (parseInt(prev_charges) > onethousand) {
+                price_after = parseInt(prev_charges - (prev_charges * 0.1));
+            }
+            else {
+                price_after = prev_charges;
+            }
+
             $("span.cart-item-total").html(prev_charges + " Kr");
+            $("span.cart-item-total-procent").html(price_after + " Kr");
 
         }
         else {
@@ -170,7 +186,20 @@ $(document).ready(function () {
             var prev_charges = $("span.cart-item-total").html();
             prev_charges = parseInt(prev_charges) + parseInt(itemPrice);
 
+            var price_after = prev_charges;
+            // Procenter
+            if (parseInt(prev_charges) > twothousand) {
+                price_after = parseInt(prev_charges - (prev_charges * 0.2));
+            }
+            else if (parseInt(prev_charges) > onethousand) {
+                price_after = parseInt(prev_charges - (prev_charges * 0.1));
+            }
+            else {
+                price_after = prev_charges;
+            }
+
             $("span.cart-item-total").html(prev_charges + " Kr");
+            $("span.cart-item-total-procent").html(price_after + " Kr");
 
             $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
         }
@@ -184,6 +213,9 @@ $(document).ready(function () {
         var itemName = $this.find("span.product-name").html();
         var itemQuantity = $this.find("span.amount").html();
         var itemPrice = $this.find("span.price").html();
+
+        var onethousand = 1000;
+        var twothousand = 2000;
 
         if (include(arrays, thisID)) {
             var price = $('#each-' + thisID).children("span.cart-item-price").html();
@@ -200,15 +232,30 @@ $(document).ready(function () {
             var prev_charges = $("span.cart-item-total").html();
             prev_charges = parseInt(prev_charges) - parseInt(itemPrice);
 
+            var price_after = prev_charges;
+            // Procenter
+            if (parseInt(prev_charges) > twothousand) {
+                price_after = parseInt(prev_charges - (prev_charges * 0.2));
+            }
+            else if (parseInt(prev_charges) > onethousand) {
+                price_after = parseInt(prev_charges - (prev_charges * 0.1));
+            }
+            else {
+                price_after = prev_charges;
+            }
+
 
             $("span.cart-item-total").html(prev_charges + " Kr");
+            $("span.cart-item-total-procent").html(price_after + " Kr");
         }
         else {
             arrays.push(thisID);
 
             var prev_charges = $("span.cart-item-total").html();
             prev_charges = parseInt(prev_charges) + parseInt(itemPrice);
+
             $("span.cart-item-total").html(prev_charges + " Kr");
+            $("span.cart-item-total-procent").html(price_after + " Kr");
 
             $("ul.cart-items").append('<li id="each-' + thisID + '"><span class="cart-item-name">' + itemName + '</span><span class="cart-item-price">' + itemPrice + ' Kr </span><span class="cart-item-amount">' + itemQuantity + '</span><span class="fa fa-times remove"></span></li>');
         }
@@ -277,6 +324,13 @@ $(document).on("click", ".pack-button", function () {
         var $pack = $this.parent(".pack-button-wrapper").parent(".pack-wrapper").removeClass("marked");
     }
 });
+
+
+$(document).on("submit", ".booking-submit", function () {
+
+});
+
+
 
 function include(arr, obj) {
     for (var i = 0; i < arr.length; i++) {
