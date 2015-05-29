@@ -1,0 +1,56 @@
+﻿body {
+}
+
+
+.orders .template {
+    display: none;
+}
+
+.products {
+    display: none;
+}
+
+    .products.active {
+        display: table-row;
+    }
+
+    .products ul {
+        list-style: none;
+    }
+
+li.head {
+    display: block;
+    border-bottom:1px solid #000;
+}
+
+    li.head span {
+        font-weight:bold;
+    }
+
+span.head-name {
+    width: 300px;
+    display: inline-block;
+}
+
+span.head-quantity {
+}
+
+span.head-price {
+    float: right;
+}
+
+li.product {
+    display: block;
+}
+
+span.name {
+    width: 300px;
+    display: inline-block;
+}
+
+span.quantity {
+}
+
+span.price {
+    float: right;
+}

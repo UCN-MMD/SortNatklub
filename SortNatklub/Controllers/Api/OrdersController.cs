@@ -46,5 +46,18 @@ namespace SortNatklub.Controllers.Api
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, (object)null, "application/json");
             }
         }
+
+        [HttpGet]
+        public HttpResponseMessage GetAllOrders()
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, repository.GetAllOrders(), "application/json");
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, (object)null, "application/json");
+            }
+        }
     }
 }

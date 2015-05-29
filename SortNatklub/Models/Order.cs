@@ -8,6 +8,7 @@ namespace SortNatklub.Models
 {
     public class Order
     {
+        [JsonProperty("id")]
         public int Id { get; set; }
         [JsonProperty("bookingName")]
         public string Name { get; set; }

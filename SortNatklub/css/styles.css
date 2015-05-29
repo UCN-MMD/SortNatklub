@@ -20,7 +20,7 @@ h3 {
         position: absolute;
         height: 2px;
         width: 50px;
-        border-bottom: 2px solid #191919;
+        border-bottom: 2px solid #000;
     }
 
 h2:before {
@@ -80,6 +80,10 @@ input:-moz-placeholder {
     padding-top: 70px;
 }
 
+.space {
+margin-top:30px;
+}
+
 
 /*Header*/
 header {
@@ -88,7 +92,7 @@ header {
     width: 100%;
     height: 45px;
     box-sizing: border-box;
-    background-color: #191919;
+    background-color: #000;
     z-index: 999;
 }
 
@@ -208,7 +212,7 @@ nav {
     left: -100%;
     position: fixed;
     transition: ease 0.2s;
-    border-right: 1px solid #191919;
+    border-right: 1px solid #000;
     background-color: rgba(0, 0, 0, 0.95);
     z-index: 888;
 }
@@ -254,7 +258,7 @@ footer {
     margin-top: 30px;
     padding-top: 30px;
     color: #fff;
-    background-color: #191919;
+    background-color: #000;
 }
 
 .footer-icon-wrapper {
@@ -351,8 +355,11 @@ input[type="submit"] {
     width: 28px;
     height: 45px;
     bottom: 20px;
-    right: 20px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
     position: absolute;
+    cursor: pointer;
 }
 
     .mouse-wrapper img {
@@ -401,7 +408,7 @@ img.icon {
 .custom-button {
     width: 250px;
     height: 45px;
-    border: 2px solid #191919;
+    border: 2px solid #000;
     border-radius: 2px;
     margin-top: 30px;
     margin-left: auto;
@@ -415,7 +422,7 @@ img.icon {
         height: 100%;
         width: 100%;
         display: block;
-        color: #191919;
+        color: #000;
         font-weight: bold;
         text-transform: uppercase;
         transition: color ease-in-out 0.1s;
@@ -426,7 +433,7 @@ img.icon {
         }
 
     .custom-button:hover {
-        background-color: #191919;
+        background-color: #000;
     }
 
     .custom-button a:hover {
@@ -459,7 +466,7 @@ img.icon {
     height: 55px;
     text-align: center;
     border-radius: 50%;
-    border: 2px solid #191919;
+    border: 2px solid #000;
     margin: 30px auto 0 auto;
     transition: background-color ease-in-out 0.1s;
 }
@@ -490,6 +497,18 @@ img.icon {
     height: 100px;
 }
 
+.Pack input[type="button"].packages-button {
+    margin-top: 15px;
+    width: 100%;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #000;
+    border-radius: 2px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
 .pack-wrapper {
     width: 100%;
     height: 315px;
@@ -505,7 +524,7 @@ img.icon {
         left: 0;
         position: absolute;
         z-index: 9;
-        background-color: #191919;
+        background-color: #000;
     }
 
         .pack-wrapper .pack-name h4 {
@@ -574,7 +593,7 @@ img.icon {
     width: 100%;
     height: 45px;
     background-color: rgba(0, 0, 0, 0);
-    border: 2px solid #191919;
+    border: 2px solid #000;
     border-radius: 2px;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -592,13 +611,13 @@ img.icon {
     .pack-button label {
         width: 100%;
         height: 100%;
-        border-right: 2px solid #191919;
+        border-right: 2px solid #000;
     }
 
         .pack-button label span.choose {
             font-weight: bold;
             font-size: 14px;
-            color: #191919;
+            color: #000;
             text-align: center;
             padding: 9px 0 0 0;
             margin: 0;
@@ -618,7 +637,7 @@ img.icon {
         }
 
         .pack-button label:hover span.choose {
-            background-color: #191919;
+            background-color: #000;
             color: #fff;
         }
 
@@ -632,7 +651,7 @@ img.icon {
 
     .pack-button input:checked ~ span.icon {
         display: block !important;
-        background-color: #191919;
+        background-color: #000;
     }
 
 .pack-info-button {
@@ -643,7 +662,7 @@ img.icon {
 
     .pack-info-button span.icon {
         text-align: center;
-        color: #191919;
+        color: #000;
         font-size: 20px;
         padding: 10px 0 0 0;
         margin: 0;
@@ -723,7 +742,7 @@ li.category {
 /*Booking total*/
 .total {
     margin-top: 30px;
-    border: 2px solid #191919;
+    border: 2px solid #000;
     border-radius: 2px;
     box-sizing: border-box;
     position: relative;
@@ -781,14 +800,14 @@ li.category {
         display: block;
         width: 100%;
         padding: 15px 15px;
-        border-top: 2px solid #191919;
+        border-top: 2px solid #000;
     }
 
     .total .cart-total-procent {
         display: block;
         width: 100%;
         padding: 15px 15px;
-        border-top: 2px solid #191919;
+        border-top: 2px solid #000;
     }
 
     .total .cart-total span {
@@ -803,11 +822,11 @@ li.category {
 
 /*Booking knap*/
 input[type="submit"].booking-button {
-    margin-top:15px;
+    margin-top: 15px;
     width: 100%;
     height: 45px;
     background-color: rgba(0, 0, 0, 1);
-    border: 2px solid #191919;
+    border: 2px solid #000;
     border-radius: 2px;
     color: #fff;
     font-weight: bold;
@@ -861,6 +880,13 @@ input[type="submit"].booking-button {
 }
 
 @media only screen and (max-width: 40em) {
+
+    .header-drink span.book {
+        display: none;
+    }
+    .header-drink span.icon {
+    float:right;
+    }
     .video-wrapper {
         width: 100%;
         height: 100%;
@@ -872,8 +898,16 @@ input[type="submit"].booking-button {
         background-color: #000;
     }
 
+    .mouse-wrapper {
+        display: none;
+    }
+
     footer .contactform .columns {
         margin-top: -10px;
         padding: 0 15px 0 15px;
+    }
+
+    #instafeed img {
+        width: 50% !important;
     }
 }

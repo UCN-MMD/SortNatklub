@@ -144,8 +144,8 @@ $(document).ready(function () {
         var itemQuantity = $this.find("span.amount").html();
         var itemPrice = $this.find("span.price").html();
 
-        var onethousand = 1000;
-        var twothousand = 2000;
+        var onethousand = 999;
+        var twothousand = 1999;
 
         if (include(arrays, thisID)) {
             var price = $('#each-' + thisID).children("span.cart-item-price").html();
@@ -213,8 +213,8 @@ $(document).ready(function () {
         var itemQuantity = $this.find("span.amount").html();
         var itemPrice = $this.find("span.price").html();
 
-        var onethousand = 1000;
-        var twothousand = 2000;
+        var onethousand = 999;
+        var twothousand = 1999;
 
         if (include(arrays, thisID)) {
             var price = $('#each-' + thisID).children("span.cart-item-price").html();

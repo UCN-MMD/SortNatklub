@@ -1,0 +1,77 @@
+﻿@using System.Web  
+@using System.Web.Security
+@helper LoginForm()
+{
+  <form class="loginForm" method="post">
+    <div><label for="name">Login:</label>
+    <input type="text" id="username" name="username"/></div>
+    <div><label for="password">Password:</label>
+    <input type="password" id="password" name="password"/></div>
+    <div><button class="button small succes" type="submit" id="submit" name="submit" value="login">Login</button></div>
+  </form>
+}
+ 
+@helper LogoutForm()
+{
+  <form method="post">
+    <button class="button small alert" type="submit" id="submit" name="submit" value="logout">Log ud</button>
+  </form>
+}
+ 
+@helper Message(string message)
+{
+  <p>@message</p>
+}
+ 
+@{
+  var isSubmitLogin = (IsPost && Request["submit"]=="login");
+  var isSubmitLogout = (IsPost && Request["submit"]=="logout");
+  var currentUser = Membership.GetUser();
+  var requestedUrl = Request.Url.PathAndQuery.ToString(); // Model.Url;
+  if (Request["ReturnUrl"]!=null)
+  {
+    requestedUrl = Request["ReturnUrl"];
+  }
+ 
+  if (currentUser!=null)
+   {    
+    if (!isSubmitLogout)
+     {
+       @Message(@umbraco.library.GetDictionaryItem("Logget ind") + ": " + currentUser.UserName)
+       @LogoutForm()
+     }
+    else
+     {
+       FormsAuthentication.SignOut();
+       FormsAuthentication.RedirectToLoginPage();
+     } 
+   }
+ 
+  if (currentUser==null)
+   {
+    if (!isSubmitLogin)  
+     {
+       @LoginForm()
+      }
+    else
+     {
+      string username=Request["username"];
+      string password=Request["password"];
+      if (Membership.ValidateUser(username, password))
+      {
+        // RedirectFromLoginPage does not work that good within the Umbraco context
+        // FormsAuthentication.RedirectFromLoginPage(username, true);
+ 
+        FormsAuthentication.SetAuthCookie(username, true);
+ 
+        // Redirect to / refresh the requested page
+        Response.Redirect(requestedUrl);
+      }
+      else
+      {
+        @Message("Log ind mislykkedes" + ": " + username)
+        @LoginForm()
+      }
+     }       
+    }
+  }

@@ -1,0 +1,68 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <title>Sort - Booking</title>
+    @*Nomralize*@
+    <link href="~/css/normalize.css" rel="stylesheet" />
+    @*Foundation grid*@
+    <link href="~/css/foundation.min.css" rel="stylesheet" />
+    @*Open Sans Google fonts*@
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600' rel='stylesheet' type='text/css' />
+    @*Iconer*@
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    @*Booking styles*@
+    <link href="~/css/booking.css" rel="stylesheet" />
+    @*Jquery*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    @*Booking script*@
+    <script src="~/scripts/bookingscript.js"></script>
+</head>
+<body>
+
+    <table class="orders">
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Antal gæster</th>
+                <th>Dato</th>
+                <th>Ordre pris</th>
+                <th>Besked</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="order template">
+                <td class="name"></td>
+                <td class="mail"></td>
+                <td class="phone"></td>
+                <td class="guests"></td>
+                <td class="date"></td>
+                <td class="total"></td>
+                <td class="message"></td>
+            </tr>
+            <tr class="products template">
+                <td colspan="7">
+                    <ul>
+                        <li class="head">
+                            <span class="head-name">Navn</span>
+                            <span class="head-quantity">Antal</span>
+                            <span class="head-price">Pris</span>
+                        </li>
+                        <li class="product template">
+                            <span class="name"></span>
+                            <span class="quantity"></span>
+                            <span class="price"></span>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
