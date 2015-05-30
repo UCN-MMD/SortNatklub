@@ -340,10 +340,6 @@
     <Content Include="css\foundation.min.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\styles.css" />
-    <Content Include="images\1.jpg" />
-    <Content Include="images\2.jpg" />
-    <Content Include="images\3.jpg" />
-    <Content Include="images\4.jpg" />
     <Content Include="images\Diamant.svg" />
     <Content Include="images\fastepakker.svg" />
     <Content Include="images\heart.svg" />
@@ -356,6 +352,10 @@
     <Content Include="images\pakke.svg" />
     <Content Include="images\plus.svg" />
     <Content Include="images\praktisk.svg" />
+    <Content Include="images\Prife-SV1.jpg" />
+    <Content Include="images\Prife-SV2.jpg" />
+    <Content Include="images\Prife-SV3.jpg" />
+    <Content Include="images\Prife-SV4.jpg" />
     <Content Include="images\privatfest.svg" />
     <Content Include="images\speech.svg" />
     <Content Include="images\video.svg" />

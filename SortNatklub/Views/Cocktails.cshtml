@@ -3,6 +3,12 @@
     Layout = "Master.cshtml";
     var productpage = Umbraco.Content(1071);
 }
+<div class="cocktails-wrapper">
+    <div class="cocktailsImages" style="background-image:url('/images/Cocktail-1-1.jpg');"></div>
+    <div class="cocktailsImages" style="background-image:url('/images/Cocktail-2-2.jpg');"></div>
+    <div class="cocktailsImages" style="background-image:url('/images/Cocktail-3-1.jpg');"></div>
+    <div class="cocktailsImages" style="background-image:url('/images/Cocktail-4-1.jpg');"></div>
+</div>
 <div class="row cocktails">
     <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="Instagram" /></span><h2>@CurrentPage.bodyTitle</h2></div>
     @if (!String.IsNullOrEmpty(CurrentPage.bodyText.ToString()))
@@ -10,7 +16,6 @@
         <div class="columns large-12">@CurrentPage.bodyText</div>
     }
 </div>
-
 <div class="row space">
     <div class="columns large-6">
         <ul class="product-list">

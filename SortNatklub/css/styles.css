@@ -92,7 +92,7 @@ header {
     width: 100%;
     height: 45px;
     box-sizing: border-box;
-    background-color: #000;
+    background-color: #000 !important;
     z-index: 999;
 }
 
@@ -490,7 +490,7 @@ img.icon {
 
 /*BOOKING*/
 .packages {
-    margin-top: 30px;
+    margin-top: 75px;
 }
 
 .Pack textarea {
@@ -520,7 +520,7 @@ img.icon {
         text-align: center;
         width: 100%;
         height: 45px;
-        top: 0;
+        top: -45px;
         left: 0;
         position: absolute;
         z-index: 9;
@@ -873,6 +873,22 @@ input[type="submit"].booking-button {
 .Cocktails {
 }
 
+.Cocktails .cocktails-wrapper {
+    width: 100%;
+    margin-top: 100px;
+    float: right;
+    margin-bottom:30px;
+}
+
+.Cocktails .cocktailsImages {
+    width: 25%;
+    float: left;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
     .Cocktails ul {
         margin-top: 0;
     }
@@ -929,6 +945,10 @@ input[type="submit"].booking-button {
 .billede-wrapper {
     position: relative;
     text-align: center;
+}
+
+.fb-account-info {
+    display:none;
 }
 
 

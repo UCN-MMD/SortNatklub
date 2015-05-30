@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="row space">
-        <div id="packages" class="columns large-12"><span><img class="icon" src="~/images/fastepakker.svg" alt="faste pakker" /></span><h2>Faste pakker</h2></div>
+        <div id="packages" class="columns large-12"><span><img class="icon" src="~/images/pakke.svg" alt="faste pakker" /></span><h2>Faste pakker</h2></div>
         @foreach (var package in productpage.Descendants("Pakke").Where("Visible"))
         {
             var products = JsonConvert.DeserializeObject(package.products);
@@ -69,7 +69,7 @@
                 </div>
             </div>
         }
-        <div class="columns large-12 space"><span><img class="icon" src="~/images/pakke.svg" alt="sammensæt selv en pakke" /></span><h2>Sammensæt selv en pakke</h2></div>
+        <div class="columns large-12 space"><span><img class="icon" src="~/images/fastepakker.svg" alt="sammensæt selv en pakke" /></span><h2>Sammensæt selv en pakke</h2></div>
         <div class="columns large-12">@CurrentPage.bodyCustomPack</div>
         <div class="columns large-6">
             <ul id="custom-packages" class="product-list">

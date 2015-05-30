@@ -9,9 +9,17 @@
         <div class="columns large-12">@CurrentPage.bodyText</div>
     }
 
-    <div class="columns large-12">
-        <div class="billede-wrapper">
-
+    <div class="columns large-12 space">
+        <div class="fb-album-container">
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $(".fb-album-container").FacebookAlbumBrowser({
+            account: "SortNatklub"
+        });
+    });
+
+</script>
