@@ -1,6 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
+    var productpage = Umbraco.Content(1071);
 }
 <div class="row cocktails">
     <div class="columns large-12"><span><img class="icon" src="~/images/heart.svg" alt="Instagram" /></span><h2>@CurrentPage.bodyTitle</h2></div>
@@ -8,4 +9,68 @@
     {
         <div class="columns large-12">@CurrentPage.bodyText</div>
     }
+</div>
+
+<div class="row space">
+    <div class="columns large-6">
+        <ul class="product-list">
+            @foreach (var category in productpage.Descendants("Cocktailkategori").Where("Visible").Where("Id != 1183"))
+            {
+                <li class="category">
+                    @*<span><img class="categoryIcon" src="~/images/lightbulb.svg" alt="Koncept" /></span>*@
+                    @category.Name
+                    @if (category.Children.Count() > 0)
+                    {
+                        <ul class="products">
+                            @foreach (var product in category.Children.Where("Visible"))
+                            {
+                                <li id="@product.Id" class="product">
+                                    <span class="product-name">@product.drinkName</span>
+                                    <span class="price">@product.drinkPrice Kr</span>
+                                    <span class="ingredients">
+                                        @foreach (var ingredient in product.drinkingridients.Split(','))
+                                        {
+                                            <span>@ingredient</span>
+                                        }
+                                    </span>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="columns large-6">
+        <ul class="product-list">
+            @foreach (var category in productpage.Descendants("Cocktailkategori").Where("Visible").Where("Id == 1183"))
+            {
+                <li class="category">
+                    @*<span><img class="categoryIcon" src="~/images/lightbulb.svg" alt="Koncept" /></span>*@
+                    @category.Name
+                    @if (category.Children.Count() > 0)
+                    {
+                        <ul class="products">
+                            @foreach (var product in category.Children.Where("Visible"))
+                            {
+                                <li id="@product.Id" class="product">
+                                    <span class="product-name">@product.drinkName</span>
+                                    <span class="price">@product.drinkPrice Kr</span>
+                                    <span class="ingredients">
+                                        @if (product.drinkingridients.count() > 0)
+                                        {
+                                            foreach (var ingredient in product.drinkingridients.Split(','))
+                                            {
+                                                <span>@ingredient</span>
+                                            }
+                                        }
+                                    </span>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
 </div>

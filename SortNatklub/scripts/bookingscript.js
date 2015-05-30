@@ -68,6 +68,62 @@
     });
 });
 
-$(document).on("click", ".order", function (e) {
-    $(this).next().toggleClass("active");
+// Når der klikkes på en "seeproducts" får tr "products" en klasse "aktiv".
+$(document).on("click", ".seeProducts", function (e) {
+    $(this).parent().next().toggleClass("active");
+});
+
+/*Send godkendelsesmail*/
+// Når der klikkes på iconet "acceptBooking" starter vi vore funktion.
+$(document).on("click", "span.acceptBooking", function (e) {
+    e.preventDefault();
+
+    // Variable "$this" er "span.acceptBooking".
+    var $this = $(this)
+
+    // Variablen "json" indeholder "json.name, json.email ...".
+    var json = {};
+    json.name = $this.parent().siblings(".name").text();
+    json.email = $this.parent().siblings(".mail").text();
+    json.subject = "Din booking på Sort er blevet godkendt";
+    json.message = "Bla bla bla";
+
+    // Et ajax kald der henter informationerne at sende mailen, fra "BookingmailController" klassen og sender vores "json" afsted.
+    $.ajax({
+        url: "/umbraco/api/bookingmail/booking",
+        dataType: "json",
+        contentType: "application/json",
+        type: "post",
+        data: JSON.stringify(json)
+    }).done(function (response) {
+        alert("Bookingen er blevet GODKENDT og der er blevet sendt en mail til: " + json.email);
+        
+    }).fail(function (repsonse) {
+        alert("Der skete en fejl");
+    });
+});
+
+/*Send afslåelsesmail*/
+$(document).on("click", "span.denyBooking", function (e) {
+    e.preventDefault();
+    var $this = $(this)
+
+    var json = {};
+    json.name = $this.parent().siblings(".name").text();
+    json.email = $this.parent().siblings(".mail").text();
+    json.subject = "Din booking på Sort er desværre blevet afslået";
+    json.message = "Bla bla bla";
+
+    $.ajax({
+        url: "/umbraco/api/bookingmail/booking",
+        dataType: "json",
+        contentType: "application/json",
+        type: "post",
+        data: JSON.stringify(json)
+    }).done(function (response) {
+        alert("Bookingen er blevet AFSLÅET og der er blevet sendt en mail til: " + json.email);
+
+    }).fail(function (repsonse) {
+        alert("Der skete en fejl");
+    });
 });

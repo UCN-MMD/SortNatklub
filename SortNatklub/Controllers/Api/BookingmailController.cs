@@ -11,10 +11,10 @@ using Umbraco.Web.WebApi;
 
 namespace SortNatklub.Controllers.Api
 {
-    public class MailController : UmbracoApiController
+    public class BookingmailController : UmbracoApiController
     {
         [HttpPost]
-        public HttpResponseMessage Contact(ContactFormViewModel formModel)
+        public HttpResponseMessage Booking(BookingmailForm bookingMail)
         {
             try
             {
@@ -25,10 +25,10 @@ namespace SortNatklub.Controllers.Api
                 smtp.Credentials = new System.Net.NetworkCredential(Config.AppSetting("Smtp.User"), Config.AppSetting("Smtp.Password"));
                 smtp.EnableSsl = true;
                 MailMessage message = new MailMessage();
-                message.To.Add(new MailAddress("dannbos@hotmail.com"));
-                message.From = new MailAddress(formModel.Email);
-                message.Body = formModel.Name + "</br>" + formModel.Message;
-                message.Subject = "Kontaktform";
+                message.To.Add(new MailAddress(bookingMail.Email));
+                message.From = new MailAddress("dannbos@hotmail.com");
+                message.Body = "Hej " + bookingMail.Name + "<br/><br/>" + bookingMail.Message;
+                message.Subject = bookingMail.Subject;
                 message.IsBodyHtml = true;
 
                 smtp.Send(message);

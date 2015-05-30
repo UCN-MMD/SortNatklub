@@ -81,7 +81,7 @@ input:-moz-placeholder {
 }
 
 .space {
-margin-top:30px;
+    margin-top: 30px;
 }
 
 
@@ -834,6 +834,22 @@ input[type="submit"].booking-button {
 }
 
 /*Privat fester*/
+.Fester .privatparty-wrapper {
+    width: 100%;
+    margin-top: 100px;
+    float: right;
+    margin-bottom:30px;
+}
+
+.Fester .privatpartyImages {
+    width: 25%;
+    float: left;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .youtube-wrapper {
     position: relative;
     margin-top: 30px;
@@ -852,6 +868,62 @@ input[type="submit"].booking-button {
         width: 100%;
         height: 100%;
     }
+
+/*Cocktials*/
+.Cocktails {
+}
+
+    .Cocktails ul {
+        margin-top: 0;
+    }
+
+    .Cocktails li.category {
+        margin-bottom: 15px;
+    }
+
+    .Cocktails ul.products {
+        padding-left: 15px !important;
+        display: block;
+    }
+
+    .Cocktails li.category .categoryIcon {
+        height: 30px;
+    }
+
+    .Cocktails li.product {
+        height: 50px !important;
+    }
+
+        .Cocktails li.product span.product-name {
+            font-weight: bold;
+        }
+
+        .Cocktails li.product span.price {
+            float: right;
+        }
+
+        .Cocktails li.product .ingredients {
+            width: 100%;
+            display: block;
+            float: left;
+        }
+
+            .Cocktails li.product .ingredients span {
+                font-size: 12px;
+                color: #686868;
+            }
+
+                .Cocktails li.product .ingredients span::after {
+                    content: ", ";
+                }
+
+                .Cocktails li.product .ingredients span:last-of-type::after {
+                    content: "";
+                }
+
+
+
+
 
 /*Billeder*/
 .billede-wrapper {
@@ -884,9 +956,11 @@ input[type="submit"].booking-button {
     .header-drink span.book {
         display: none;
     }
+
     .header-drink span.icon {
-    float:right;
+        float: right;
     }
+
     .video-wrapper {
         width: 100%;
         height: 100%;

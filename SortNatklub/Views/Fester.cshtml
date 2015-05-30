@@ -2,12 +2,24 @@
 @{
     Layout = "Master.cshtml";
 }
+
+<div class="privatparty-wrapper">
+    <div class="privatpartyImages" style="background-image:url('/images/1.jpg');"></div>
+    <div class="privatpartyImages" style="background-image:url('/images/2.jpg');"></div>
+    <div class="privatpartyImages" style="background-image:url('/images/3.jpg');"></div>
+    <div class="privatpartyImages" style="background-image:url('/images/4.jpg');"></div>
+</div>
 <div class="row fester">
     <div class="columns large-12"><span><img class="icon" src="~/images/privatfest.svg" alt="privatfest" /></span><h2>@CurrentPage.bodyTitle</h2></div>
     <div class="columns large-12">@CurrentPage.bodyText</div>
+    <div class="columns large-12">
+        <div class="custom-button">
+            <a href="#Contact">Kontakt os</a>
+        </div>
+    </div>
 </div>
 <div class="row">
-    <div class="columns large-12"><span><img class="icon" src="~/images/video.svg" alt="Oplev sort i en video" /></span><h2>Oplev Sort Natklub</h2></div>
+    <div class="columns large-12 space"><span><img class="icon" src="~/images/video.svg" alt="Oplev sort i en video" /></span><h2>Oplev Sort Natklub</h2></div>
     <div class="columns large-12">
         <div class="youtube-wrapper">
             <iframe width="1280" height="720" src="https://www.youtube.com/embed/@CurrentPage.bodyLink" frameborder="0" allowfullscreen></iframe>

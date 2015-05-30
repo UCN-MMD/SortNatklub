@@ -340,6 +340,10 @@
     <Content Include="css\foundation.min.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\styles.css" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
     <Content Include="images\Diamant.svg" />
     <Content Include="images\fastepakker.svg" />
     <Content Include="images\heart.svg" />
@@ -3062,8 +3066,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Config.cs" />
+    <Compile Include="Controllers\Api\BookingmailController.cs" />
     <Compile Include="Controllers\Api\MailController.cs" />
     <Compile Include="Controllers\Api\OrdersController.cs" />
+    <Compile Include="Models\BookingmailForm.cs" />
     <Compile Include="Models\ContactFormViewModel.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />

@@ -6,6 +6,25 @@
     display: none;
 }
 
+.orders {
+    width:auto;
+    margin:0 auto;
+}
+
+.accept, .deny {
+    text-align: center;
+}
+
+    .accept span {
+        cursor:pointer;
+        color: green;
+    }
+
+    .deny span {
+        cursor:pointer;
+        color: red;
+    }
+
 .products {
     display: none;
 }
@@ -16,15 +35,16 @@
 
     .products ul {
         list-style: none;
+        padding-left:0;
     }
 
 li.head {
     display: block;
-    border-bottom:1px solid #000;
+    border-bottom: 1px solid #000;
 }
 
     li.head span {
-        font-weight:bold;
+        font-weight: bold;
     }
 
 span.head-name {

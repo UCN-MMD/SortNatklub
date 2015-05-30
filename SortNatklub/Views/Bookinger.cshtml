@@ -22,10 +22,10 @@
     <script src="~/scripts/bookingscript.js"></script>
 </head>
 <body>
-
     <table class="orders">
         <thead>
             <tr>
+                <th></th>
                 <th>Navn</th>
                 <th>Email</th>
                 <th>Telefon</th>
@@ -33,11 +33,13 @@
                 <th>Dato</th>
                 <th>Ordre pris</th>
                 <th>Besked</th>
+                <th>Accepterer</th>
+                <th>Afslå</th>
             </tr>
         </thead>
-
         <tbody>
             <tr class="order template">
+                <td class="seeProducts"><span class="fa fa-angle-down"></span></td>
                 <td class="name"></td>
                 <td class="mail"></td>
                 <td class="phone"></td>
@@ -45,9 +47,11 @@
                 <td class="date"></td>
                 <td class="total"></td>
                 <td class="message"></td>
+                <td class="accept"><span class="fa fa-check acceptBooking"></span></td>
+                <td class="deny"><span class="fa fa-times denyBooking"></span></td>
             </tr>
             <tr class="products template">
-                <td colspan="7">
+                <td colspan="10">
                     <ul>
                         <li class="head">
                             <span class="head-name">Produkter</span>

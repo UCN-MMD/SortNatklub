@@ -54,37 +54,7 @@
             @foreach (var page in frontpage.Children.Where("Visible"))
             {
                 <li>
-                    @*@if (page.DocumentTypeAlias == "Sektion")
-                        {
-                            <a>@page.Name</a>
-                            if (page.Children.Any())
-                            {
-                                <ul class="subnav hidden">
-                                    @foreach (var subpage in page.Children.Where("Visible"))
-                                    {
-                                        <li>
-                                            <a href="@subpage.url">@subpage.Name</a>
-                                        </li>
-                                    }
-                                </ul>
-                            }
-                        }
-                        else
-                        {*@
                     <a href="@page.url">@page.Name</a>
-                    @*if (page.Children.Any())
-                            {
-                                <ul class="subnav hidden">
-                                    @foreach (var subpage in page.Children.Where("Visible"))
-                                    {
-                                        <li>
-                                            <a href="@subpage.url">@subpage.Name</a>
-                                        </li>
-                                    }
-                                </ul>
-                            }
-                        }*@
-
                 </li>
             }
             <li><a class="contact-link" href="#Contact">Kontakt</a></li>

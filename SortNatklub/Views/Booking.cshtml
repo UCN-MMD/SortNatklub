@@ -26,16 +26,16 @@
             </div>
             <div class="row">
                 <div class="columns small-6 medium-6 large-6">
-                    <input class="packages-button" type="button" name="go-to-packages" value="Pakker" />
+                    <a href="#packages"><input class="packages-button" type="button" name="go-to-packages" value="Pakker" /></a>
                 </div>
                 <div class="columns small-6 medium-6 large-6">
-                    <input class="packages-button" type="button" name="go-to-choose-products" value="Vælg selv" />
+                    <a href="#custom-packages"><input class="packages-button" type="button" name="go-to-choose-products" value="Vælg selv" /></a>
                 </div>
             </div>
         </div>
     </div>
     <div class="row space">
-        <div class="columns large-12"><span><img class="icon" src="~/images/fastepakker.svg" alt="faste pakker" /></span><h2>Faste pakker</h2></div>
+        <div id="packages" class="columns large-12"><span><img class="icon" src="~/images/fastepakker.svg" alt="faste pakker" /></span><h2>Faste pakker</h2></div>
         @foreach (var package in productpage.Descendants("Pakke").Where("Visible"))
         {
             var products = JsonConvert.DeserializeObject(package.products);
@@ -72,7 +72,7 @@
         <div class="columns large-12 space"><span><img class="icon" src="~/images/pakke.svg" alt="sammensæt selv en pakke" /></span><h2>Sammensæt selv en pakke</h2></div>
         <div class="columns large-12">@CurrentPage.bodyCustomPack</div>
         <div class="columns large-6">
-            <ul class="product-list">
+            <ul id="custom-packages" class="product-list">
                 @foreach (var category in productpage.Descendants("Produktkategori").Where("Visible"))
                 {
                     <li class="category">
