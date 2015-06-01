@@ -44,37 +44,30 @@
     @*Facecbook albums js*@
     <script src="~/scripts/jquery.fb.albumbrowser.js"></script>
     @*Custom script*@
+    <script src="~/scripts/Cart.js"></script>
     <script src="~/scripts/script.js"></script>
 </head>
 <body class="@CurrentPage.DocumentTypeAlias">
-    @*<body class="lol12">*@
-    <header class="boxShadow">
-        <div class="burger" href="#"><span></span></div>
-        <div class="header-logo"><a href="@frontpage.url"><img class="hidden" src="~/images/Logo.svg" alt="Sort natklub" /></a></div>
-        <div class="header-drink"><a href="@booking.Url"><span class="book">Bordbooking</span><span class="icon fa fa-plus"></span></a></div>
-    </header>
-    <nav>
-        <ul class="main-nav">
-            @foreach (var page in frontpage.Children.Where("Visible"))
-            {
-                <li>
-                    <a href="@page.url">@page.Name</a>
-                </li>
-            }
-            <li><a class="contact-link" href="#Contact">Kontakt</a></li>
-        </ul>
-    </nav>
-    @RenderBody()
-    <footer>
+        <header class="boxShadow">
+            <div class="burger" href="#"><span></span></div>
+            <div class="header-logo"><a href="@frontpage.url"><img class="hidden" src="~/images/Logo.svg" alt="Sort natklub" /></a></div>
+            <div class="header-drink"><a href="@booking.Url"><span class="book">Bordbooking</span><span class="icon fa fa-plus"></span></a></div>
+        </header>
+        <div class="border-nav"></div>
+        <nav>
+            <ul class="main-nav">
+                @foreach (var page in frontpage.Children.Where("Visible"))
+                {
+                    <li>
+                        <a href="@page.url">@page.Name</a>
+                    </li>
+                }
+                <li><a class="contact-link" href="#Contact">Kontakt</a></li>
+            </ul>
+        </nav>
+        @RenderBody()
+    <footer id="footer">
         <div class="row">
-            <div class="columns small-12 medium-6 large-4">
-                <div class="footer-icon-wrapper"><img src="~/images/Diamant.svg" alt="Adresse" /></div>
-                <h3>Sort natklub</h3>
-                <p>@frontpage.address</p>
-                <p>@frontpage.city</p>
-                <p>+45 @frontpage.phone</p>
-                <p>@frontpage.email</p>
-            </div>
             <div class="columns small-12 medium-6 large-4">
                 <div class="footer-icon-wrapper"><img src="~/images/speech.svg" alt="socail media" /></div>
                 <h3>Fang os på</h3>
@@ -83,6 +76,14 @@
                     <a href="https://www.facebook.com/Sortnatklub" target="_blank"><span class="fa fa-3x fa-facebook-official"></span></a>
                     <a href="https://instagram.com/sortnatklub/" target="_blank"><span class="fa fa-3x fa-instagram"></span></a>
                 </p>
+            </div>
+            <div class="columns small-12 medium-6 large-4">
+                <div class="footer-icon-wrapper"><img src="~/images/Diamant.svg" alt="Adresse" /></div>
+                <h3>Sort natklub</h3>
+                <p>@frontpage.address</p>
+                <p>@frontpage.city</p>
+                <p>+45 @frontpage.phone</p>
+                <p>@frontpage.email</p>
             </div>
             <div class="columns large-4">
                 <div id="Contact" class="row contactform">

@@ -5,6 +5,11 @@
 body {
     background-color: #fff;
     font-family: 'Open Sans', sans-serif;
+    background-image: url("/images/bgdiamond.png");
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h2 {
@@ -44,6 +49,7 @@ a {
 
 p {
     text-align: justify;
+    font-size: 14px;
 }
 
 input[type=text],
@@ -137,10 +143,12 @@ header {
 
     .burger.selected span:before {
         transform: translate(0px, 8px) rotate(-45deg);
+        -webkit-transform: translate(0px, 8px) rotate(-45deg);
     }
 
     .burger.selected span:after {
         transform: translate(0px, -8px) rotate(45deg);
+        -webkit-transform: translate(0px, -8px) rotate(45deg);
     }
 
     .burger.selected span {
@@ -255,10 +263,12 @@ ul.subnav {
 
 /*Footer*/
 footer {
-    margin-top: 30px;
+    margin-top:30px;
     padding-top: 30px;
     color: #fff;
     background-color: #000;
+    position: relative;
+    width: 100%;
 }
 
 .footer-icon-wrapper {
@@ -270,7 +280,7 @@ footer {
 }
 
 footer p {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0 0 4px 0;
     padding: 0 0 0 0;
 }
@@ -321,15 +331,51 @@ input[type="submit"] {
 .video-wrapper {
     width: 100%;
     height: 100%;
+    /*margin-bottom: 30px;
+    background-image: url('/images/mask2.png');
+    background-position: center 10%;
+    background-size: 1200px auto;
+    background-repeat: no-repeat;*/
+    background-color: #000;
+}
+
+.man {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     margin-bottom: 30px;
     background-image: url('/images/mask2.png');
     background-position: center 10%;
     background-size: 1200px auto;
     background-repeat: no-repeat;
-    background-color: #000;
+    -webkit-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    opacity: 0;
 }
 
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
 
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 
 /*Logo*/
 .logo-wrapper {
@@ -348,6 +394,7 @@ input[type="submit"] {
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
+        cursor: pointer;
     }
 
 /*Mouse icon*/
@@ -376,18 +423,36 @@ input[type="submit"] {
 @keyframes floating {
     0% {
         transform: translateY(0%);
+        -webkit-transform: translateY(0%);
     }
 
     50% {
         transform: translateY(8%);
+        -webkit-animationtransform: translateY(8%);
     }
 
     100% {
         transform: translateY(0%);
+        -webkit-transform: translateY(0%);
     }
 }
 
+.border-nav {
+    top: 35px;
+    width: 100%;
+    height: 23px;
+    position: fixed;
+    background-image: url(/images/border.png);
+    background-repeat: repeat-x;
+}
 
+.border {
+    width: 100%;
+    height: 23px;
+    position: relative;
+    background-image: url(/images/border.png);
+    background-repeat: repeat-x;
+}
 
 img.icon {
     margin-top: 28px;
@@ -395,8 +460,8 @@ img.icon {
     height: 43px;
     float: left;
 }
-/*Concept*/
 
+/*Concept*/
 .concept {
 }
 
@@ -443,6 +508,7 @@ img.icon {
 /*Instagram*/
 .instagram {
     margin-top: 30px;
+    margin-bottom:30px;
 }
 
     .instagram h3 {
@@ -737,6 +803,7 @@ li.category {
 
 .reverse {
     transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
 }
 
 /*Booking total*/
@@ -838,7 +905,7 @@ input[type="submit"].booking-button {
     width: 100%;
     margin-top: 100px;
     float: right;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
 .Fester .privatpartyImages {
@@ -873,21 +940,21 @@ input[type="submit"].booking-button {
 .Cocktails {
 }
 
-.Cocktails .cocktails-wrapper {
-    width: 100%;
-    margin-top: 100px;
-    float: right;
-    margin-bottom:30px;
-}
+    .Cocktails .cocktails-wrapper {
+        width: 100%;
+        margin-top: 100px;
+        float: right;
+        margin-bottom: 30px;
+    }
 
-.Cocktails .cocktailsImages {
-    width: 25%;
-    float: left;
-    height: 300px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+    .Cocktails .cocktailsImages {
+        width: 25%;
+        float: left;
+        height: 300px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 
     .Cocktails ul {
         margin-top: 0;
@@ -948,7 +1015,7 @@ input[type="submit"].booking-button {
 }
 
 .fb-account-info {
-    display:none;
+    display: none;
 }
 
 
@@ -957,13 +1024,28 @@ input[type="submit"].booking-button {
     .video-wrapper {
         width: 100%;
         height: 100%;
+        background-color: #000;
+    }
+
+    .man {
+        position: absolute;
+        width: 100%;
+        height: 100%;
         margin-bottom: 30px;
-        background-image: url('/images/mask2.png');
         background-position: center 10%;
         background-size: cover;
         background-repeat: no-repeat;
-        background-color: #000;
+        -webkit-animation: fadeIn ease-in 1;
+        animation: fadeIn ease-in 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-duration: 2s;
+        animation-duration: 2s;
+        opacity: 0;
     }
+
+
+
 
     footer .contactform .columns {
         margin-top: -10px;
@@ -972,6 +1054,13 @@ input[type="submit"].booking-button {
 }
 
 @media only screen and (max-width: 40em) {
+    body {
+        background-size: 100% auto;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
 
     .header-drink span.book {
         display: none;
@@ -984,12 +1073,24 @@ input[type="submit"].booking-button {
     .video-wrapper {
         width: 100%;
         height: 100%;
+        background-color: #000;
+    }
+
+    .man {
+        position: absolute;
+        width: 100%;
+        height: 100%;
         margin-bottom: 30px;
-        background-image: url('/images/mask2.png');
         background-position: center 10%;
         background-size: cover;
         background-repeat: no-repeat;
-        background-color: #000;
+        -webkit-animation: fadeIn ease-in 1;
+        animation: fadeIn ease-in 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-duration: 2s;
+        animation-duration: 2s;
+        opacity: 0;
     }
 
     .mouse-wrapper {
@@ -1004,4 +1105,69 @@ input[type="submit"].booking-button {
     #instafeed img {
         width: 50% !important;
     }
+
+    /*BOOKING Products*/
+    ul.product-list {
+        width: 100%;
+        padding: 0;
+        list-style: none;
+        position: relative;
+    }
+
+        ul.product-list li {
+            position: relative;
+        }
+
+    li.category {
+        width: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        li.category span.icon {
+            float: right;
+            font-size: 30px;
+            margin-right: 10px;
+            transition: all 0.2s;
+        }
+
+        li.category ul.products {
+            display: block;
+            width: 100%;
+            padding: 0 10px 0 0;
+            list-style: none;
+        }
+
+            li.category ul.products li.product {
+                padding-top: 4px;
+                padding-left: 10px;
+                height: 30px;
+                font-size: 12px;
+                font-weight: normal;
+            }
+
+                li.category ul.products li.product .product-info {
+                    width: 40%;
+                    float: right;
+                }
+
+                    li.category ul.products li.product .product-info span.price {
+                        font-size: 12px;
+                        float: left;
+                        margin-right: 10px;
+                    }
+
+                        li.category ul.products li.product .product-info span.price::after {
+                            content: " Kr";
+                        }
+
+                    li.category ul.products li.product .product-info .product-count {
+                        float: right;
+                    }
+
+                        li.category ul.products li.product .product-info .product-count span.amount {
+                            margin: 0 10px;
+                            font-weight: bold;
+                        }
 }

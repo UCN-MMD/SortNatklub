@@ -53,7 +53,6 @@ namespace SortNatklub.Models.Repositories
             {
                 return null;
             }
-
         }
 
         public Order GetOrder(int id)
@@ -128,7 +127,7 @@ namespace SortNatklub.Models.Repositories
                 using (SqlCommand cmd = sql.CreateCommand())
                 {
 
-                    cmd.CommandText = "SELECT * FROM OrderDetails OD JOIN OrderProducts OP ON OD.Id = OP.orderId ORDER BY OD.Id";
+                    cmd.CommandText = "SELECT * FROM OrderDetails OD JOIN OrderProducts OP ON OD.Id = OP.orderId ORDER BY OD.Id DESC";
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

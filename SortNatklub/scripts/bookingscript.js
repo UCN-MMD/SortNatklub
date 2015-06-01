@@ -1,4 +1,5 @@
 ﻿$(document).ready(function (e) {
+    
     // Laver en variable der hedder "orders" som er table.
     var $orders = $(".orders"),
 
@@ -23,12 +24,16 @@
             // Fjerner klassen "template" fra "order".
             $order.removeClass("template");
 
+            //Formatere datoen ved hjælp af momentJS
+            var date = moment.utc(order.bookingDate).format("DD-MM-YY");
+
             // Finder klassen "xxx" og giver den indholdet der er i "bookingXXX".
+            $order.find(".orderID").text(order.id);
             $order.find(".name").text(order.bookingName);
             $order.find(".mail").text(order.bookingEmail);
             $order.find(".phone").text(order.bookingPhone);
             $order.find(".guests").text(order.bookingGuests);
-            $order.find(".date").text(order.bookingDate);
+            $order.find(".date").text(date);
             $order.find(".message").text(order.bookingMessage);
             $order.find(".total").text(order.bookingTotal);
 

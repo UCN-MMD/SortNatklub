@@ -22,6 +22,16 @@ $(document).on("click", ".burger", function () {
     });
 
 });
+//Footer i bunden
+$(document).on("ready", function () {
+    var windowHeight = $(window).height();
+    var footerHeight = $('#footer').height();
+    var footerTop = $('#footer').position().top + footerHeight;
+
+    if (footerTop < windowHeight) {
+        $('#footer').css('margin-top', 10 + (windowHeight - footerTop) + 'px');
+    }
+});
 
 /*Kontakt*/
 $(document).on('submit', 'form.contact-form', function (e) {
@@ -56,7 +66,6 @@ $(document).on("ready", function () {
                 scrollTop: 0
             }, 1200);
         });
-
         $(window).scroll(function () {
             var windowHeight = $(window).height() - 55;
             var scrollHeight = $(window).scrollTop();
@@ -81,6 +90,11 @@ $(document).on("ready", function () {
 });
 
 $(document).on("click", ".mouse-wrapper", function () {
+    $("html, body").animate({
+        scrollTop: $(window).height()
+    }, 1200);
+});
+$(document).on("click", "img.logo", function () {
     $("html, body").animate({
         scrollTop: $(window).height()
     }, 1200);
@@ -262,15 +276,20 @@ $(document).ready(function () {
 
     /*Remove item*/
     $(document).on("click", "span.remove", function () {
-        var deduct = $(this).siblings("span.cart-item-price").html();
-        var prev_charges = $("span.cart-item-total").html();
+        var prev_price = $(this).siblings("span.cart-item-price").html();
         var prev_quantity = $(this).siblings("span.cart-item-amount").html();
+
+
+        var deduct = parseInt(prev_price) * parseInt(prev_quantity);
+
+        var prev_charges = $("span.cart-item-total").html();
+
         var thisID = $(this).parent().attr('id').replace('each-', '');
 
         var pos = getpos(arrays, thisID);
         arrays.splice(pos, 1, "0")
 
-        prev_charges = parseInt(prev_charges) - (parseInt(prev_quantity) * parseInt(deduct));
+        prev_charges = parseInt(prev_charges) - parseInt(deduct);
         $("span.cart-item-total").html(prev_charges);
         $("span.cart-item-amount").html("0");
         $(this).parent("li").remove();
@@ -327,7 +346,7 @@ $(document).on("click", ".pack-button", function () {
 
 
 $(document).on("click", ".booking-button", function () {
-    var $this = $(this)
+    var $this = $(this);
 
     var json = {};
 
@@ -337,9 +356,7 @@ $(document).on("click", ".booking-button", function () {
     json.bookingGuests = $this.closest(".Pack").find('input[name="booking-amount"]').val();
     json.bookingDate = $this.closest(".Pack").find('input[name="booking-date"]').val();
     json.bookingMessage = $this.closest(".Pack").find('textarea[name="orderMessage"]').val();
-
     json.bookingTotal = $this.siblings(".total").find("span.cart-item-total-procent").text();
-
     json.bookingProducts = new Array();
 
     $("ul.cart-items li.product").each(function (i, product) {
@@ -349,7 +366,6 @@ $(document).on("click", ".booking-button", function () {
             productPrice: $(product).find("span.cart-item-price").text()
         });
     });
-    console.log(json);
 
     $.ajax({
         url: "/umbraco/api/orders/placeorder",

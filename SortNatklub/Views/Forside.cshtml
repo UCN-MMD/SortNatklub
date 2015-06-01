@@ -5,6 +5,7 @@
     var booking = Umbraco.Content(1058);
 }
 <div class="video-wrapper">
+    <div class="man fadeIn"></div>
     <div class="logo-wrapper">
         <img class="logo" src="/images/Logo.svg" alt="Sort Natklub" />
     </div>
@@ -13,13 +14,19 @@
         <img class="floating" src="~/images/mouse-scroll.svg" alt="Scroll down" />
     </div>
 </div>
+<div class="border"></div>
 <div class="concept">
     <div class="row">
         <div class="columns large-12"><span><img class="icon" src="~/images/lightbulb.svg" alt="Koncept" /></span><h2>Koncept</h2></div>
         <div class="columns large-12">@CurrentPage.Concept</div>
-        <div class="columns large-12">
+        <div class="columns small-12 medium-6 large-6">
             <div class="custom-button">
                 <a href="@booking.Url">Book et bord <span class="fa fa-plus"></span></a>
+            </div>
+        </div>
+        <div class="columns small-12 medium-6 large-6">
+            <div class="custom-button">
+                <a href="#Contact">Kontakt os</a>
             </div>
         </div>
     </div>

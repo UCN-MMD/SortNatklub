@@ -26,15 +26,5 @@ namespace SortNatklub.Models
         public string Total { get; set; }
         [JsonProperty("bookingProducts")]
         public List<OrderItem> Products { get; set; }
-
-        //public void Calculate()
-        //{
-        //    Total = 0;
-
-        //    foreach (OrderItem product in Products)
-        //    {
-        //        Total += product.ProductPrice * product.ProductQuantity;
-        //    }
-        //}
     }
 }

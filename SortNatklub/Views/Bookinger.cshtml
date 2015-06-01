@@ -20,26 +20,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     @*Booking script*@
     <script src="~/scripts/bookingscript.js"></script>
+    @*Moment JS*@
+    <script src="~/scripts/moment.js"></script>
 </head>
 <body>
     <table class="orders">
         <thead>
             <tr>
                 <th></th>
+                <th>#ID</th>
                 <th>Navn</th>
                 <th>Email</th>
                 <th>Telefon</th>
-                <th>Antal gæster</th>
+                <th>Gæster</th>
                 <th>Dato</th>
-                <th>Ordre pris</th>
+                <th>Pris</th>
                 <th>Besked</th>
-                <th>Accepterer</th>
+                <th>Godkend</th>
                 <th>Afslå</th>
             </tr>
         </thead>
         <tbody>
             <tr class="order template">
                 <td class="seeProducts"><span class="fa fa-angle-down"></span></td>
+                <td class="orderID"></td>
                 <td class="name"></td>
                 <td class="mail"></td>
                 <td class="phone"></td>
@@ -51,7 +55,7 @@
                 <td class="deny"><span class="fa fa-times denyBooking"></span></td>
             </tr>
             <tr class="products template">
-                <td colspan="10">
+                <td colspan="11">
                     <ul>
                         <li class="head">
                             <span class="head-name">Produkter</span>
