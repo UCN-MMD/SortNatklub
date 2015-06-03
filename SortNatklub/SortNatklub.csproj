@@ -339,6 +339,7 @@
     <Content Include="css\foundation-datepicker.css" />
     <Content Include="css\foundation.css" />
     <Content Include="css\foundation.min.css" />
+    <Content Include="css\jquery.fb.albumbrowser.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\styles.css" />
     <Content Include="images\bgdiamond.png" />
@@ -378,6 +379,8 @@
     <Content Include="scripts\bookingscript.js" />
     <Content Include="scripts\foundation-datepicker.js" />
     <Content Include="scripts\instafeed.js" />
+    <Content Include="scripts\jquery.fb.albumbrowser.js" />
+    <Content Include="scripts\jquery.validate.js" />
     <Content Include="scripts\moment.js" />
     <Content Include="scripts\script.js" />
     <Content Include="umbraco\Actions\delete.aspx" />
@@ -3076,7 +3079,9 @@
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Config.cs" />

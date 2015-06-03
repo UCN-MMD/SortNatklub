@@ -62,13 +62,13 @@
                                     <span class="product-name">@product.drinkName</span>
                                     <span class="price">@product.drinkPrice Kr</span>
                                     <span class="ingredients">
-                                        @if (product.drinkingridients.count() > 0)
-                                        {
-                                            foreach (var ingredient in product.drinkingridients.Split(','))
+                                        @*@if (product.drinkingridients.count() > 0)
+                                        {*@
+                                            @foreach (var ingredient in product.drinkingridients.Split(','))
                                             {
                                                 <span>@ingredient</span>
                                             }
-                                        }
+                                        @*}*@
                                     </span>
                                 </li>
                             }

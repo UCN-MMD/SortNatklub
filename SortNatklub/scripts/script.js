@@ -347,37 +347,46 @@ $(document).on("click", ".pack-button", function () {
 
 $(document).on("click", ".booking-button", function () {
     var $this = $(this);
+    if ($("#booking-form").valid()) {
+        var json = {};
 
-    var json = {};
+        json.bookingName = $this.closest(".Pack").find('input[name="booking-name"]').val();
+        json.bookingEmail = $this.closest(".Pack").find('input[name="booking-email"]').val();
+        json.bookingPhone = $this.closest(".Pack").find('input[name="booking-phone"]').val();
+        json.bookingGuests = $this.closest(".Pack").find('input[name="booking-amount"]').val();
+        json.bookingDate = $this.closest(".Pack").find('input[name="booking-date"]').val();
+        json.bookingMessage = $this.closest(".Pack").find('textarea[name="orderMessage"]').val();
+        json.bookingTotal = $this.siblings(".total").find("span.cart-item-total-procent").text();
+        json.bookingProducts = new Array();
 
-    json.bookingName = $this.closest(".Pack").find('input[name="booking-name"]').val();
-    json.bookingEmail = $this.closest(".Pack").find('input[name="booking-email"]').val();
-    json.bookingPhone = $this.closest(".Pack").find('input[name="booking-phone"]').val();
-    json.bookingGuests = $this.closest(".Pack").find('input[name="booking-amount"]').val();
-    json.bookingDate = $this.closest(".Pack").find('input[name="booking-date"]').val();
-    json.bookingMessage = $this.closest(".Pack").find('textarea[name="orderMessage"]').val();
-    json.bookingTotal = $this.siblings(".total").find("span.cart-item-total-procent").text();
-    json.bookingProducts = new Array();
-
-    $("ul.cart-items li.product").each(function (i, product) {
-        json.bookingProducts.push({
-            productName: $(product).find("span.cart-item-name").text(),
-            productQuantity: parseInt($(product).find("span.cart-item-amount").text()),
-            productPrice: $(product).find("span.cart-item-price").text()
+        $("ul.cart-items li.product").each(function (i, product) {
+            json.bookingProducts.push({
+                productName: $(product).find("span.cart-item-name").text(),
+                productQuantity: parseInt($(product).find("span.cart-item-amount").text()),
+                productPrice: $(product).find("span.cart-item-price").text()
+            });
         });
-    });
 
-    $.ajax({
-        url: "/umbraco/api/orders/placeorder",
-        dataType: "json",
-        contentType: "application/json",
-        type: "post",
-        data: JSON.stringify(json)
-    }).done(function (response) {
-        alert("Din booking er blevet sendt. Vi vender tilbage hurtigst muligt.");
-    }).fail(function (repsonse) {
-        alert("Der skete en fejl. Prøv igen eller ring til os.");
-    });
+
+
+
+
+
+        $.ajax({
+            url: "/umbraco/api/orders/placeorder",
+            dataType: "json",
+            contentType: "application/json",
+            type: "post",
+            data: JSON.stringify(json)
+        }).done(function (response) {
+            alert("Din booking er blevet sendt. Vi vender tilbage hurtigst muligt.");
+        }).fail(function (repsonse) {
+            alert("Der skete en fejl. Prøv igen eller ring til os.");
+        });
+    }
+    else {
+        alert("Der gik noget galt. Kig venligst din booking igennem for fejl og udfyld alle felter.")
+    }
 });
 
 

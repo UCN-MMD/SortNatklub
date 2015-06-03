@@ -54,7 +54,9 @@ p {
 
 input[type=text],
 input[type=email],
-input[type=number] {
+input[type=number],
+input[type=tel],
+input[type=datetime] {
     height: 45px;
 }
 
@@ -885,7 +887,10 @@ li.category {
             float: right;
             text-decoration: underline;
         }
-
+/*Validering*/
+label.error {
+    margin-top:0px;
+}
 
 /*Booking knap*/
 input[type="submit"].booking-button {
