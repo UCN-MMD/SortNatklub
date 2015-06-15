@@ -265,7 +265,7 @@ ul.subnav {
 
 /*Footer*/
 footer {
-    margin-top:30px;
+    margin-top: 30px;
     padding-top: 30px;
     color: #fff;
     background-color: #000;
@@ -510,7 +510,7 @@ img.icon {
 /*Instagram*/
 .instagram {
     margin-top: 30px;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
     .instagram h3 {
@@ -794,14 +794,10 @@ li.category {
                         content: " Kr";
                     }
 
-                li.category ul.products li.product .product-info .product-count {
+                li.category ul.products li.product .product-info span.addProductAmount {
                     float: right;
+                    margin-right: 5px;
                 }
-
-                    li.category ul.products li.product .product-info .product-count span.amount {
-                        margin: 0 10px;
-                        font-weight: bold;
-                    }
 
 .reverse {
     transform: rotate(180deg);
@@ -809,7 +805,7 @@ li.category {
 }
 
 /*Booking total*/
-.total {
+.cart {
     margin-top: 30px;
     border: 2px solid #000;
     border-radius: 2px;
@@ -817,79 +813,83 @@ li.category {
     position: relative;
 }
 
-    .total ul.cart-items {
+    .cart ul.cart-items {
         list-style: none;
         padding: 5px 15px 5px 15px;
         margin: 0;
         width: 100%;
     }
 
-        .total ul.cart-items li {
+        .cart ul.cart-items li.item {
             width: 100%;
             position: relative;
         }
 
-            .total ul.cart-items li span {
+            .cart ul.cart-items li.item span.name {
                 display: inline-block;
-                margin: 5px 0;
+                font-weight: normal !important;
+                font-size: 14px;
             }
 
-                .total ul.cart-items li span.cart-item-name {
-                    font-weight: normal !important;
-                    font-size: 14px;
-                    width: 200px;
-                }
+            .cart ul.cart-items li.item span.price {
+                display: inline-block;
+                font-weight: normal !important;
+                font-size: 14px;
+                height: 21px;
+                margin-top: 5px;
+                float: right;
+            }
 
-                .total ul.cart-items li span.cart-item-price {
-                    font-weight: normal !important;
-                    font-size: 14px;
-                    height: 21px;
-                    position: absolute;
-                    right: 150px;
-                }
+            .cart ul.cart-items li.item .amount {
+                display: inline-block;
+                font-weight: normal !important;
+                font-size: 14px;
+                width: 60px;
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
 
-                .total ul.cart-items li span.cart-item-amount {
-                    font-weight: normal !important;
-                    font-size: 14px;
-                    position: absolute;
-                    right: 50px;
-                }
+            .cart ul.cart-items li.item span.remove {
+                width: 25px;
+                right: 0px;
+                margin-top: 7px;
+                text-align: center;
+                color: red;
+                cursor: pointer;
+                float: right;
+            }
 
-                .total ul.cart-items li span.remove {
-                    position: absolute;
-                    width: 25px;
-                    right: 0px;
-                    top: 2px;
-                    text-align: center;
-                    color: red;
-                    cursor: pointer;
-                }
+            .cart ul.cart-items li.item.template {
+                display: none;
+            }
 
-    .total .cart-total {
+
+
+    .cart .cart-total {
         display: block;
         width: 100%;
         padding: 15px 15px;
         border-top: 2px solid #000;
     }
 
-    .total .cart-total-procent {
+    .cart .cart-total-procent {
         display: block;
         width: 100%;
         padding: 15px 15px;
         border-top: 2px solid #000;
     }
 
-    .total .cart-total span {
+    .cart .cart-total span {
         font-weight: bold;
     }
 
-        .total .cart-total span:last-of-type {
+        .cart .cart-total span:last-of-type {
             float: right;
             text-decoration: underline;
         }
 /*Validering*/
 label.error {
-    margin-top:0px;
+    margin-top: 0px;
 }
 
 /*Booking knap*/

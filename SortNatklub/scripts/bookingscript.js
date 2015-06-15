@@ -93,7 +93,7 @@ $(document).on("click", "span.acceptBooking", function (e) {
     json.subject = "Din booking på Sort er blevet godkendt";
     json.message = "Bla bla bla";
 
-    // Et ajax kald der henter informationerne at sende mailen, fra "BookingmailController" klassen og sender vores "json" afsted.
+    // Et ajax kald der henter informationerne, fra "BookingmailController" klassen, for at sende vores json data afsted som en mail.
     $.ajax({
         url: "/umbraco/api/bookingmail/booking",
         dataType: "json",
