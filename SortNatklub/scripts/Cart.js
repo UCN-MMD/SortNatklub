@@ -194,6 +194,7 @@ $(document).on("click", ".booking-button", function () {
         });
     }
     else {
-        alert("Der gik noget galt. Kig venligst din booking igennem for fejl og udfyld alle felter.")
+        alert("Der gik noget galt. Kig venligst din booking igennem for fejl og udfyld alle felter i toppen.");
+        window.scrollTo(0, 0);
     }
 });

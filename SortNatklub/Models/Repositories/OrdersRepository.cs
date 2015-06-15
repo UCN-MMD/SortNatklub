@@ -10,14 +10,17 @@ namespace SortNatklub.Models.Repositories
 {
     public class OrdersRepository
     {
+        // Post order
         public Order PlaceOrder(Order order)
         {
             try
             {
-                //order.Calculate();
+                //Den connectionstring der bliver brugt
                 using (SqlConnection sql = new SqlConnection(Config.ConnectionString("umbracoDbDSN")))
                 {
+                    //Åben connectionstringen
                     sql.Open();
+                    // SQl command
                     using (SqlCommand cmd = sql.CreateCommand())
                     {
                         cmd.CommandText = "INSERT INTO OrderDetails([name], [mail], [phone], [guests], [date], [message], [orderTotal]) VALUES(@name, @mail, @phone, @guests, @date, @message, @orderTotal); SELECT SCOPE_IDENTITY();";
@@ -29,6 +32,8 @@ namespace SortNatklub.Models.Repositories
                         cmd.Parameters.AddWithValue("@message", order.Message);
                         cmd.Parameters.AddWithValue("@orderTotal", order.Total);
 
+                        //Gennemføre det hele
+                        // Executes the query, and returns the first column of the first row in the result set returned by the query. I dette tilfælde er det ID'et på ordren. Det skal bruges når produkterne nedenunder skal indsættes i db.
                         order.Id = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                     }
 
@@ -45,6 +50,7 @@ namespace SortNatklub.Models.Repositories
                             cmd.ExecuteNonQuery();
                         }
                     }
+                    //Luk connectionstringen igen
                     sql.Close();
                     return GetOrder(order.Id);
                 }
@@ -55,6 +61,7 @@ namespace SortNatklub.Models.Repositories
             }
         }
 
+        //Get a single order
         public Order GetOrder(int id)
         {
             Order order = new Order();
@@ -115,8 +122,7 @@ namespace SortNatklub.Models.Repositories
             }
         }
 
-
-
+        //Get a list of all orders
         public List<Order> GetAllOrders()
         {
             List<Order> model = new List<Order>();

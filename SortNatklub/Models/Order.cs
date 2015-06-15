@@ -9,27 +9,22 @@ namespace SortNatklub.Models
 {
     public class Order
     {
-
+        // Disse properties bliver fyldt med data fra fetlerne på hjemmesiden ved hjælp af Jquery i script-filen.
         [JsonProperty("id")]
         public int Id { get; set; }
 
-        //[Required]
         [JsonProperty("bookingName")]
         public string Name { get; set; }
 
-        //[Required]
         [JsonProperty("bookingEmail")]
         public string Mail { get; set; }
 
-        //[Required]
         [JsonProperty("bookingPhone")]
         public string Phone { get; set; }
 
-        //[Required]
         [JsonProperty("bookingGuests")]
         public int Guests { get; set; }
 
-        //[Required]
         [JsonProperty("bookingDate")]
         public DateTime Date { get; set; }
 

@@ -84,14 +84,17 @@ $(document).on("click", "span.acceptBooking", function (e) {
     e.preventDefault();
 
     // Variable "$this" er "span.acceptBooking".
-    var $this = $(this)
+    var $this = $(this),
+    id = $this.parent().siblings(".orderID").text(),
+    name = $this.parent().siblings(".name").text(),
+    guests = $this.parent().siblings(".guests").text(),
+    date = $this.parent().siblings(".date").text();
 
     // Variablen "json" indeholder "json.name, json.email ...".
-    var json = {};
-    json.name = $this.parent().siblings(".name").text();
+    var json = {};    
     json.email = $this.parent().siblings(".mail").text();
-    json.subject = "Din booking på Sort er blevet godkendt";
-    json.message = "Bla bla bla";
+    json.subject = "Din booking på Sort er blevet bekræftet";
+    json.message = "Hej " + name + "<br/><br/>Vi bekræfter hermed din bordbooking på SORT Natklub d." + date + " for " + guests + " personer. Din booking består af: (liste af produkter).<br/><br/>Fremmøde skal ske før 01.00, ellers tillader vi os at sælge bordet til anden side. <br/><br/>Beløb op til 2000kr. kan betales med det samme igennem MobilePay. Du skal blot skrive ordre id'et #" + id + " i beskrivelses feltet og sende betalingen til tlf.: 60162106.<br/><br/>Har du eventuelle spørgsmål er du velkommen til at sende os en mail eller ringe til os på tlf.: 60162106. <br/>Vi glæder os til at se dig.";
 
     // Et ajax kald der henter informationerne, fra "BookingmailController" klassen, for at sende vores json data afsted som en mail.
     $.ajax({
@@ -111,13 +114,17 @@ $(document).on("click", "span.acceptBooking", function (e) {
 /*Send afslåelsesmail*/
 $(document).on("click", "span.denyBooking", function (e) {
     e.preventDefault();
-    var $this = $(this)
+    var $this = $(this),    
+    name = $this.parent().siblings(".name").text(),
+    guests = $this.parent().siblings(".guests").text(),
+    date = $this.parent().siblings(".date").text();
 
     var json = {};
     json.name = $this.parent().siblings(".name").text();
     json.email = $this.parent().siblings(".mail").text();
     json.subject = "Din booking på Sort er desværre blevet afslået";
-    json.message = "Bla bla bla";
+    json.message = "Hej " + name + "<br/><br/>Vi beklager, men din bordbooking på SORT Natklub d." + date + " for " + guests + " personer er desværre blevet aflyst.<br/><br/>Hvis du har eventuelle spørgsmål er du velkommen til at kontakte os på mail eller tlf.: 60162106.";
+
 
     $.ajax({
         url: "/umbraco/api/bookingmail/booking",

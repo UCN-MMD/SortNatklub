@@ -10,8 +10,10 @@ using System.Web;
 using System.Web.Http;
 using Umbraco.Web.WebApi;
 
+
+// En controller er et object der håndtere HTTP requests.
 namespace SortNatklub.Controllers.Api
-{
+{    
     public class OrdersController : UmbracoApiController
     {
         OrdersRepository repository;
@@ -21,11 +23,15 @@ namespace SortNatklub.Controllers.Api
             repository = new OrdersRepository();
         }
 
+        //RESTful API HTTP Post methode (REpresentational State Transfer)
         [HttpPost]
+        // HttpResponseMessage Constructor (PlaceOrder)
+        //Initializes a new instance of the HttpResponseMessage class with a specific StatusCode.
         public HttpResponseMessage PlaceOrder(Order order)
         {
             try
             {
+                // HttpStatusCode (OK 200, Not found 404, iternal server error 500 osv...)
                 return Request.CreateResponse(HttpStatusCode.OK, repository.PlaceOrder(order), "application/json");
             }
             catch (Exception e)
